@@ -1,0 +1,26 @@
+#set($attributeList = [])
+#foreach($option in ${options})
+
+#if($attributeList.contains($option.attribute.name)==false)
+<!--$attributeList.add($option.attribute.name)-->
+#end
+#end
+
+#foreach($att in $attributeList)
+${att}:<select name="option"><option>请选择</option>
+#foreach($option in ${options})
+#if(${att}==${option.attribute.name})
+<option value="${option.id}">${option.value}</option>
+#end
+
+#end
+</select><br/><br/>
+#end
+<!--
+<div class="sizes">
+#foreach($size in ${product.sizes})
+
+${size.name}
+		
+#end
+</div>-->

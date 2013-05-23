@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="AngelInTheBox_WEB构建脚本0830" default="generate Hibernate configuration file" basedir=".">
+
+   	<property name="src.dir" value="${basedir}/src"/>
+	<property name="xdoclet.home" value="/Users/admin/Desktop/TEMP/朱超云/xdoclet-plugins-1.0.3"/>
+
+   	<!-- Build classpath -->
+   	<path id="xdoclet.task.classpath">
+      	<fileset dir="${xdoclet.home}/lib">
+         	<include name="**/*.jar"/>
+      	</fileset>
+      	<fileset dir="${xdoclet.home}/plugins">
+         	<include name="**/*.jar"/>
+      	</fileset>
+   	</path>
+	<taskdef  
+		name="xdoclet"
+		classname="org.xdoclet.ant.XDocletTask"
+		classpathref="xdoclet.task.classpath"
+	/>
+	
+	<target name="generate Hibernate configuration file">
+		<xdoclet>
+	<fileset dir="${src.dir}/com/hnfealean/sport/model"> 
+	
+				<include name="**/*.java"/>
+			</fileset>			
+			<component
+				classname="org.xdoclet.plugin.hibernate.HibernateConfigPlugin"
+				destdir="${src.dir}"
+				version="3.0"
+				hbm2ddlauto="update"
+				dialect="org.hibernate.dialect.MySQLDialect"
+				showsql="true"
+			/>
+			<!--
+						jdbcurl="jdbc:mysql://127.0.0.1:3306/59124"
+							jdbcdriver="com.mysql.jdbc.Driver"
+							jdbcusername="root"
+							jdbcpassword="hnfealean"
+							dialect="org.hibernate.dialect.MySQLDialect"
+						-->
+		</xdoclet>
+	</target>
+	<target name="generate Hibernate hbm files">
+		<xdoclet>
+			<fileset dir="${src.dir}/com/hnfealean/sport/model">
+		
+				<include name="**/*.java"/>
+			</fileset>
+			<component 
+				classname="org.xdoclet.plugin.hibernate.HibernateMappingPlugin"
+				version="3.0"
+				destdir="${src.dir}"
+			/>
+		</xdoclet>
+	</target>
+</project>
+
+

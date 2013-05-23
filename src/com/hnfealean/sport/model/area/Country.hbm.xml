@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_country" name="com.hnfealean.sport.model.area.Country">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="enName" length="20" access="field"/>
+    <property name="cnName" length="20" access="field"/>
+    <property name="countries_iso_code_2" length="5" access="field"/>
+    <property name="countries_iso_code_3" length="5" access="field"/>
+  </class>
+</hibernate-mapping>

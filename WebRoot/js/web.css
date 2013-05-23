@@ -1,0 +1,11 @@
+.thickdiv {
+background:#000000 none repeat scroll 0 0;
+border:0 none;
+height:100%;
+left:0;
+opacity:0.15;
+position:fixed;
+top:0;
+width:100%;
+z-index:10000001;
+}

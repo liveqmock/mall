@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>用户登录 巴巴运动网</title>
+<link href="../../css/global/header01.css" rel="stylesheet" type="text/css">
+<SCRIPT language=JavaScript src="../../js/FoshanRen.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function init(){
+	var userName = document.getElementById("userName");
+	if(userName) userName.value = getCookie("userName");
+}
+/**
+* 验证表单
+*/
+function validateForm(form){
+	var userName = form.userName.value;
+	var password = form.password.value;
+	if(userName==null || trim(userName)==""){
+		alert("会员名不能为空");
+		form.userName.focus();
+		return false;
+	}
+	if(password==null || trim(password)==""){
+		alert("密码不能为空");
+		form.password.focus();
+		return false;
+	}
+	return true;
+}
+//-->
+</SCRIPT>
+<style type="text/css">
+<!--
+.STYLE1 {color: #666666}
+.logintitle H2 {
+	DISPLAY: block; FONT-WEIGHT: bold; FONT-SIZE: 14px; MARGIN: 0px 0px 0px 0px;PADDING:0 0 0 10px;color:#525252
+}
+.ablue2{
+	FONT-SIZE: 14px; color:#0066FF
+}
+-->
+</style>
+</head>
+
+<body onload="JavaScript:init()">
+
+
+<div id="Head">
+  <div id="HeadTop">
+    <div id="Logo"><a href="http://www.babasport.com/" target=_top><img alt="中国最大、最安全的户外用品、体育用品网上交易平台！" src="../../images/global/logo.gif" border=0 /></a> </div>
+    <div id="HeadNavBar">
+      <ul>
+        <li class="NoSep"><a id="MyBuyCar"  href="../shopping/cart.htm" ><font color="blue"><Strong>购物车</Strong></font></a> </li>
+        <li><a href="reg.htm" >新用户注册</a> </li>
+        <li><a href="login.htm" >用户登录</a> </li>
+        <li><a href="http://www.babasport.com/cache/help/index.shtml">帮助中心</a> </li>
+        <li class="phone">服务热线：010-64663070</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Head End -->
+<TABLE cellSpacing=0 cellPadding=0 width=770 align=center border=0>
+  <TBODY>
+  <TR><TD background="../../images/login/login_03.jpg">&nbsp;</TD></TR>
+ </TBODY>
+</TABLE>
+<br/>
+<DIV id="errorinfo" style="DISPLAY:none">
+<TABLE cellSpacing=1 cellPadding=8 width="600" align="center" bgColor="#dd9988" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor="#ffffd5" align="left"><IMG height="17" src="../../images/buy/exclamation-error-red.gif" width="17"> <FONT color="#990000"><STRONG><SPAN class="font14">错误提示<BR></SPAN></STRONG></FONT>
+      <DIV id="errorMessage"></DIV>
+	</TD>
+  </TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+        <form action="../../global/checkLogin.do" method="post" name="login" onsubmit="javascript:return validateForm(this)">
+		
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="center"><table width="80%" border="0" align="center" cellpadding="10" cellspacing="0">
+					<tr>
+						<td width="100%" height="50" valign="top"><table width="95%" height="25" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="3%"><img src="../../images/global/loginicon1.gif" width="16" height="15" align="absBottom"></td>
+									<td width="97%" align="left" class="logintitle"><H2>用户登录</H2></td>
+								</tr>
+							</table>						</td>
+					</tr>
+					<tr>
+						<td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+								  <td width="40%" align="right" class="c5"><strong>您的用户账号：</strong></td>
+								  <td width="27%"> <input name="userName" id="userName" type="text" size="20" maxlength="20" /></td>
+								  <td align="left">&nbsp;</td>
+						  </tr>
+								<tr>
+								  <td colspan="3" align="right" height="15"></td>
+						  </tr>
+								<tr>
+									<td align="right" class="c5"><strong>您的密码：</strong></td>
+									<td > <input name="password" type="password" size="20" maxLength="16">								</td>
+									<td width="33%" align="left"><a href="forgetpassword.htm" class="ablue" target="_blank">忘记密码了？</a></td>
+								</tr>
+							</table>						</td>
+					</tr>
+					<tr>
+						<td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="STYLE1">注意：如果你在网吧等公众场合的机器上登录本网，请在离开机器前退出，以免账户被他人冒用造成不必要的麻烦！</td>
+								</tr>								
+							</table>						</td>
+					</tr>
+					<tr>
+						<td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="34%" align="right">&nbsp;</td>
+									<td width="8%" align="left" valign="middle"><input type="image" name="ImageButton1" src="../../images/global/regloginbutton2.jpg" alt="" border="0" />&nbsp;</td>
+								    <td width="58%" align="left" valign="middle">如果你还未注册，<span style="font-size:14px"><a href="reg.html?directurl=" class="ablue2">请免费注册</a>！</span></td>
+								</tr>
+							</table>						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		</form>
+	</table>
+
+
+<center>
+	<div class="publish_page_bottom" align="center">
+	  <table class="b_middle">
+	  <tr>
+		<td width="104" class="title width_1 t2"><h2>我的帐户</h2></td>
+		<td width="104" class="title"><h2>如何付款</h2></td>
+		<td width="125" class="title"><h2>配送及运费</h2></td>
+		<td width="102" class="title"><h2>办理退换货</h2></td>
+		<td width="88" class="title width_2 t3"><h2>帮助中心</h2></td>
+	  </tr>
+	  <tr>
+		<td class="width_1"><a href="http://www.babasport.com/cache/news/2/1.shtml" target="_blank">我的帐户自助服务</a></td>
+		<td><a href="http://www.babasport.com/cache/news/3/4.shtml" target="_blank">货到付款常见问题</a></td>
+		<td><a href="http://www.babasport.com/cache/news/6/9.shtml" target="_blank">配送范围时间及费用</a></td>
+		<td><a href="http://www.babasport.com/cache/news/8/12.shtml" target="_blank">退换货原则</a></td>
+		<td class="width_2"><a href="http://www.babasport.com/mapping/user/forgetpassword.htm" target="_blank">找回密码</a></td>
+	  </tr>
+	  <tr>
+		<td class="width_1"><a href="http://www.babasport.com/cache/news/2/2.shtml" target="_blank">如何修改订单</a></td>
+		<td><a href="http://www.babasport.com/cache/news/4/5.shtml" target="_blank">网上支付常见问题</a></td>
+		<td><a href="http://www.babasport.com/cache/news/7/10.shtml" target="_blank">海外订单的运费</a></td>
+		<td><a href="http://www.babasport.com/cache/news/8/13.shtml" target="_blank">退换货流程</a></td>
+		<td class="bj_no"></td>
+	  </tr>
+	  <tr>
+		<td class="width_1"><a href="http://www.babasport.com/cache/news/2/3.shtml" target="_blank">如何取消订单</a></td>
+		<td><a href="http://www.babasport.com/cache/news/4/6.shtml" target="_blank">邮局汇款常见问题</a></td>
+		<td><a href="http://www.babasport.com/cache/news/7/11.shtml" target="_blank">免运费优惠</a></td>
+		<td class="bj_no">&nbsp;</td>
+		<td class="bj_no"></td>
+	  </tr>
+	  <tr>
+		<td class="bj_no"></td>
+		<td><a href="http://www.babasport.com/cache/news/4/7.shtml" target="_blank">银行电汇常见问题</a></td>
+		<td class="bj_no">&nbsp;</td>
+		<td class="bj_no">&nbsp;</td>
+		<td class="bj_no"></td>
+	  </tr>
+	  <tr>
+		<td class="bj_no">&nbsp;</td>
+		<td><a href="http://www.babasport.com/cache/news/5/8.shtml" target="_blank">汇款单招领</a></td>
+		<td class="bj_no">&nbsp;</td>
+		<td class="bj_no">&nbsp;</td>
+		<td class="bj_no">&nbsp;</td>
+	  </tr>
+	</table>
+	</div>
+
+	<div class="publish_bottom_message">
+	<ul>
+		<li><a href="#">公司简介</a></li>
+		<li><a href="#">诚征英才</a></li>
+		<li><a href="#">网站联盟</a></li>
+		<li><a href="#">供货商合作</a></li>
+		<li class="m_right"><a href="#">交易条款</a><img src="http://www.baidu.com/s?kw=&sc=&cl=3&tn=sitehao123&ct=&rn=&lm=&ie=&rs2=&myselectvalue=&f=&pv=&z=&from=&word=%C9%D0%D1%A7%CC%C3%D4%F5%C3%B4%D1%F9" border="0" width="0" height="0"></li>
+	</ul>
+	</div><div  align="center"  style="MARGIN: 10px 0px 10px 0px;clear:both">Copyright (C) 巴巴运动网 2007-2009, All Rights Reserved  京ICP备07500530号</div><!--
+	  <div class="publish_bottom_message2">
+		 <div class="copyright">Copyright (C) 巴巴运动网 2007, All Rights Reserved</div>
+		 <div class="validate">  </div>
+	</div> -->
+	</center>
+</body>
+</html>

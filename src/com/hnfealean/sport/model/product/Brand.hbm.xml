@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_brand" name="com.hnfealean.sport.model.product.Brand">
+    <id length="32" access="field" name="id">
+      <generator class="uuid"/>
+    </id>
+    <property name="logoUrl" length="100" access="field"/>
+    <property name="name" not-null="true" length="30" access="field" unique="true"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_administrator" name="com.hnfealean.sport.model.user_acl_module.Administrator">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" not-null="true" access="field" unique="true"/>
+    <property name="password" not-null="true" access="field"/>
+    <set access="field" lazy="true" order-by="id asc" name="menuGroups">
+      <key column="admin"/>
+      <one-to-many class="com.hnfealean.sport.model.user_acl_module.MenuGroup"/>
+    </set>
+  </class>
+</hibernate-mapping>

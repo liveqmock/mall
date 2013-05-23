@@ -1,0 +1,20 @@
+.loginContainer {background:#4a74b5;margin:100px 20px 0 500px;}
+.loginMain{text-align:left; min-height:300px; background:url(../../../../images/templates/default/backstage/login_img.jpg) no-repeat;}
+.logintitle {padding:25px 30px 4px; font-size:14px;}
+.titleLine {height:1px;height:2px;width:282px; background:#325ea7;border-bottom:1px solid #648abe;}
+.loginPanel {width:380px;background:url(../../../../images/templates/default/backstage/loginPanel_bg.gif) repeat-y; overflow:hidden;zoom:1;}
+.loginPanelTop {overflow:hidden; background:url(../../../../images/templates/default/backstage/loginPanel_top.gif) left top no-repeat;}
+.loginPanelBottom{background:url(../../../../images/templates/default/backstage/loginPanel_bottom.gif) left bottom no-repeat; padding-bottom:30px;overflow:hidden;}
+.loginContent{margin:0 28px;}
+.line{border-top: 1px solid rgb(115, 144, 191); border-bottom: 1px solid rgb(230, 234, 245); overflow: hidden;}
+fieldset{border:0}
+body.login{background:#4A74B5 none repeat scroll 0 0;}
+body.login div.label{
+
+font-size:18px;
+font-weight:bold;
+padding:10px;color:#333
+}
+h4.titleInfo{
+font-size:24px;
+margin:0;}

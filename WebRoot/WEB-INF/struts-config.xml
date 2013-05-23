@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+	<form-beans>
+		<form-bean name="categoryForm" type="com.hnfealean.sport.web.forms.product.CategoryActionForm"></form-bean>
+		<form-bean name="brandForm" type="com.hnfealean.sport.web.forms.product.BrandActionForm"></form-bean>
+		<form-bean name="uploadForm" type="com.hnfealean.sport.web.forms.upload.UploadFileActionForm"></form-bean>
+		<form-bean name="productForm" type="com.hnfealean.sport.web.forms.product.ProductActionForm"></form-bean>
+		<form-bean name="productStyleForm" type="com.hnfealean.sport.web.forms.product.ImagesAndStyleActionForm"></form-bean>
+		<form-bean name="frontProductForm" type="com.hnfealean.sport.web.forms.product.front.FrontProductActionForm"></form-bean>
+		<form-bean name="UserNameCheckForm" type="com.hnfealean.sport.web.forms.user.UserNameCheckForm"></form-bean>
+		<form-bean name="UserLoginCheckForm" type="com.hnfealean.sport.web.forms.user.UserLoginCheckForm"></form-bean>
+		<form-bean name="UserRegForm" type="com.hnfealean.sport.web.forms.user.UserRegForm"></form-bean>
+		<form-bean name="shoppingCartItemForm" type="com.hnfealean.sport.web.forms.shopping.ShoppingCartItemForm"></form-bean>
+		<form-bean name="deliverForm" type="com.hnfealean.sport.web.forms.shopping.DeliverForm"></form-bean>
+		<form-bean name="paymentMethodForm" type="com.hnfealean.sport.web.forms.shopping.PaymentMethodForm"></form-bean>
+		<form-bean name="leaveMessageForm" type="com.hnfealean.sport.web.forms.shopping.MessageForm"></form-bean>
+		<form-bean name="orderForm" type="com.hnfealean.sport.web.forms.shopping.OrderForm"></form-bean>
+		<form-bean name="productsSearchForm" type="com.hnfealean.sport.web.forms.product.front.ProductsSearchForm"></form-bean>
+		<form-bean name="administratorForm" type="com.hnfealean.sport.web.forms.user.AdministratorForm"></form-bean>
+		<form-bean name="moduleForm" type="com.hnfealean.sport.web.forms.user.ModuleForm"></form-bean>
+		<form-bean name="roleForm" type="com.hnfealean.sport.web.forms.user.RoleForm"></form-bean>
+		<form-bean name="aclForm" type="com.hnfealean.sport.web.forms.user.ACLForm"></form-bean>
+		<form-bean name="articleForm" type="com.hnfealean.sport.web.forms.article.ArticleForm"></form-bean>
+		<form-bean name="tagForm" type="com.hnfealean.sport.web.forms.product.TagForm"></form-bean>
+		<form-bean name="frontArticleForm" type="com.hnfealean.sport.web.forms.article.FrontArticleForm"></form-bean>
+		<form-bean name="countryForm" type="com.hnfealean.sport.web.forms.area.CountryForm"></form-bean>
+		<form-bean name="zoneForm" type="com.hnfealean.sport.web.forms.area.ZoneForm"></form-bean>
+		<form-bean name="productAttributeForm" type="com.hnfealean.sport.web.forms.product.ProductAttributeForm"></form-bean>
+		<form-bean name="stockForm" type="com.hnfealean.sport.web.forms.product.StockForm"></form-bean>
+		<form-bean name="easyPopulateForm" type="com.hnfealean.sport.web.forms.easypopulate.EasyPopulateForm"></form-bean>
+		<form-bean name="categoryAttributeForm" type="com.hnfealean.sport.web.forms.product.CategoryAttributeForm"></form-bean>
+		<form-bean name="commentForm" type="com.hnfealean.sport.web.forms.comment.CommentForm"></form-bean>
+		<form-bean name="paypalForm" type="com.hnfealean.sport.web.forms.payment.PaypalForm"></form-bean>
+		<form-bean name="emailForm" type="com.hnfealean.sport.web.forms.email.EmailActionForm"></form-bean>
+		<form-bean name="userManagerForm" type="com.hnfealean.sport.web.forms.user.UserManagerActionForm"></form-bean>
+		<form-bean name="usercenterForm" type="com.hnfealean.sport.web.forms.user.UserCenterActionForm"></form-bean>
+		<form-bean name="imageFileForm" type="com.hnfealean.sport.web.forms.file.ImageFileActionForm"></form-bean>
+		<form-bean name="couponForm" type="com.hnfealean.sport.web.forms.coupon.CouponActionForm"></form-bean>
+		<form-bean name="frontCouponForm" type="com.hnfealean.sport.web.forms.coupon.FrontCouponActionForm"></form-bean>
+		<form-bean name="distributionForm" type="com.hnfealean.sport.web.forms.deliver.DistributionActionForm"></form-bean>
+		<form-bean name="globalDeliverModuleActionForm" type="com.hnfealean.sport.web.forms.deliver.GlobalDeliverModuleActionForm"></form-bean>
+		<form-bean name="deliverTypeActionForm" type="com.hnfealean.sport.web.forms.deliver.DeliverTypeActionForm"></form-bean>
+		<form-bean name="yeepayForm" type="com.hnfealean.sport.web.forms.payment.YeepayForm"></form-bean>
+		<form-bean name="alipayForm" type="com.hnfealean.sport.web.forms.payment.AlipayForm"></form-bean>
+		<form-bean name="alipayConfigurationForm" type="com.hnfealean.sport.web.forms.payment.AlipayConfigurationForm"></form-bean>
+		<form-bean name="frontPayAndDeliverForm" type="com.hnfealean.sport.web.forms.shopping.FrontPayAndDeliverForm"></form-bean>
+		<form-bean name="orderStatusForm" type="com.hnfealean.sport.web.forms.shopping.OrderStatusForm"></form-bean>
+		<form-bean name="menuForm" type="com.hnfealean.sport.web.forms.user.MenuForm"></form-bean>
+		<form-bean name="logForm" type="com.hnfealean.sport.web.forms.log.LogForm"></form-bean>
+	</form-beans>								 
+	<global-exceptions>
+		<exception 
+			key="errors.detail" 
+			type="java.lang.Exception"
+			path="/WEB-INF/templates/default/share/exceptiondisplay.jsp"
+			scope="request"
+			handler="com.hnfealean.sport.web.SystemExceptionHandler"
+		></exception>
+	</global-exceptions>
+	<global-forwards>
+	<forward name="redirectTo" path="/WEB-INF/templates/default/share/directUrl.jsp"></forward>
+	<forward name="noPermission" path="/WEB-INF/templates/default/share/noPermission.jsp"></forward>	
+	</global-forwards>
+	
+	<action-mappings>
+	<!-- 后台部分 -->
+		<action path="/control/center/main" forward="/WEB-INF/templates/default/backstage/controlcenter/default.jsp"/>
+		<action path="/control/center/top" forward="/WEB-INF/templates/default/backstage/controlcenter/top.jsp"/>
+		<action path="/control/center/left" forward="/WEB-INF/templates/default/backstage/controlcenter/menu.jsp"/>
+		<action path="/control/center/right" forward="/WEB-INF/templates/default/backstage/controlcenter/right.jsp"/>
+		<action path="/control/center/end" forward="/WEB-INF/templates/default/backstage/controlcenter/end.jsp"/>
+		<action path="/control/center/adminmenu/manage" 
+			name="menuForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/adminmenu/menugrouplist.jsp"></forward>
+				<forward name="addGroupInput" path="/WEB-INF/templates/default/backstage/adminmenu/addGroupInput.jsp"></forward>
+				<forward name="editItem" path="/WEB-INF/templates/default/backstage/adminmenu/editItem.jsp"></forward>
+				<forward name="addItemInput" path="/WEB-INF/templates/default/backstage/adminmenu/addItemInput.jsp"></forward>
+				<forward name="editGroup" path="/WEB-INF/templates/default/backstage/adminmenu/editGroup.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>			
+		<action path="/control/payment/alipay/manage" 
+			name="alipayConfigurationForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/onlinepay/alipayindex.jsp"></forward>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/onlinepay/alipayedit.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/backstage/share/message.jsp"></forward>
+		</action>	
+		<action path="/control/center/paymentmethod/manage" 
+			name="paymentMethodForm"
+				scope="request"
+				parameter="method">
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/paymentmethod/paymentmethodaddinput.jsp"></forward>
+				<forward name="index" path="/WEB-INF/templates/default/backstage/paymentmethod/paymentmethodindex.jsp"></forward>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/paymentmethod/paymentmethodedit.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>	
+		
+		<action path="/control/center/coupon/manage" 
+			name="couponForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/coupon/couponslist.jsp"></forward>
+				<forward name="addCouponInput" path="/WEB-INF/templates/default/backstage/coupon/addCouponInput.jsp"></forward>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/coupon/couponedit.jsp"></forward>
+				<forward name="listCouponUsedRecords" path="/WEB-INF/templates/default/backstage/coupon/couponusedrecordslist.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>	
+	   <action path="/control/center/delivertype/manage" 
+			name="deliverTypeActionForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/delivertype/delivertypelist.jsp"></forward>
+				<forward name="editinput" path="/WEB-INF/templates/default/backstage/delivertype/delivertypeeditinput.jsp"></forward>
+			    <forward name="addinput" path="/WEB-INF/templates/default/backstage/delivertype/delivertypeaddinput.jsp"></forward>
+			    <forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>	
+		
+		<action path="/control/center/globaldistribution/manage" 
+			name="globalDeliverModuleActionForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/globaldeliver/globaldelivermodule.jsp"></forward>
+				<forward name="addDistributionTemplateInput" path="/WEB-INF/templates/default/backstage/globaldeliver/adddistributiontemplateinput.jsp"></forward>
+			<forward name="addDeliverTypeInput" path="/WEB-INF/templates/default/backstage/globaldeliver/addDeliverTypeInput.jsp"></forward>
+			<forward name="globaldelivermoduleaddinput" path="/WEB-INF/templates/default/backstage/globaldeliver/globaldelivermoduleaddinput.jsp"></forward>
+			<forward name="globaldelivermoduleeditinput" path="/WEB-INF/templates/default/backstage/globaldeliver/globaldelivermoduleeditinput.jsp"></forward>
+			<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>	
+		
+		
+		<action path="/control/center/distribution/manage" 
+			name="distributionForm"
+				scope="request"
+				parameter="method">
+				<forward name="distributionTemplateList" path="/WEB-INF/templates/default/backstage/distribution/distributiontemplatelist.jsp"></forward>
+				<forward name="addDistributionTemplateInput" path="/WEB-INF/templates/default/backstage/distribution/adddistributiontemplateinput.jsp"></forward>
+			<forward name="addDeliverTypeInput" path="/WEB-INF/templates/default/backstage/distribution/addDeliverTypeInput.jsp"></forward>
+			<forward name="success" path="/WEB-INF/templates/default/backstage/share/message.jsp"></forward>
+			<forward name="delivermoduleeditinput" path="/WEB-INF/templates/default/backstage/distribution/delivermoduleeditinput.jsp"></forward>
+			<forward name="delivermoduleaddinput" path="/WEB-INF/templates/default/backstage/distribution/delivermoduleaddinput.jsp"></forward>
+			<forward name="productDistribution" path="/WEB-INF/templates/default/backstage/distribution/productDistribution.jsp"></forward>
+		</action>	
+		<action path="/control/center/images/manage" 
+			name="imageFileForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/images/imageslist.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>	
+	<action path="/control/center/comment/manage" 
+			name="commentForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/comment/commentslist.jsp"></forward>
+				<forward name="commentdetail" path="/WEB-INF/templates/default/backstage/comment/commentdetail.jsp"></forward>
+				<forward name="commentedit" path="/WEB-INF/templates/default/backstage/comment/commentedit.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>	
+		<action path="/control/center/user/manage" 
+			name="userManagerForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/user/userlist.jsp"></forward>
+				<forward name="userdetail" path="/WEB-INF/templates/default/backstage/user/userdetail.jsp"></forward>
+				<forward name="useredit" path="/WEB-INF/templates/default/backstage/user/useredit.jsp"></forward>
+				<forward name="userorderlist" path="/WEB-INF/templates/default/backstage/user/userorderlist.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>
+		<action path="/control/product/categoryattribute/manage" 
+			name="categoryAttributeForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/product/categoryattributelist.jsp"></forward>
+				<forward name="listoptions" path="/WEB-INF/templates/default/backstage/product/categoryattributeoptionslist.jsp"></forward>
+				<forward name="addcategoryattributeoptioninput" path="/WEB-INF/templates/default/backstage/product/addcategoryattributeoptioninput.jsp"></forward>
+				<forward name="addcategoryattributeinput" path="/WEB-INF/templates/default/backstage/product/addcategoryattributeinput.jsp"></forward>
+				<forward name="add_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="editcategoryattributeoption" path="/WEB-INF/templates/default/backstage/product/editcategoryattributeoption.jsp"></forward>
+				<forward name="product_filter" path="/WEB-INF/templates/default/backstage/product/product_filter.jsp"></forward>
+		</action>
+		<action path="/control/center/emailsender/manage" 
+				name="emailForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/emailsender/adminemaillist.jsp"></forward>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/emailsender/inputadminemail.jsp"></forward>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/emailsender/editadminemail.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>
+		<action path="/control/center/email/manage" 
+				name="emailForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/email/adminemaillist.jsp"></forward>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/email/inputadminemail.jsp"></forward>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/email/editadminemail.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>
+		<action path="/control/product/category/manage" 
+				name="categoryForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/product/categorylist.jsp"></forward>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/product/add_category.jsp"></forward>
+				<forward name="add" path="/WEB-INF/templates/default/backstage/product/add_category.jsp"></forward>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/product/edit_category.jsp"></forward>
+				<forward name="queryInput" path="/WEB-INF/templates/default/backstage/product/query_category.jsp"></forward>
+				<forward name="add_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="update_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="addedProductsModuleList" path="/WEB-INF/templates/default/backstage/product/addedProductsModuleList.jsp"></forward>
+				<forward name="addedProductsModuleInput" path="/WEB-INF/templates/default/backstage/product/add_category_disproducts.jsp"></forward>
+				<forward name="editMetaTags" path="/WEB-INF/templates/default/backstage/product/categoryeditMetaTags.jsp"></forward>
+		</action>
+		<action path="/control/product/brand/manage" 
+				name="brandForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/product/brandlist.jsp"></forward>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/product/add_brand.jsp"></forward>
+				<forward name="add" path="/WEB-INF/templates/default/backstage/product/add_brand.jsp"></forward>
+				<forward name="editInput" path="/WEB-INF/templates/default/backstage/product/edit_brand.jsp"></forward>
+				<forward name="queryInput" path="/WEB-INF/templates/default/backstage/product/query_brand.jsp"></forward>
+				<forward name="add_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="update_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>
+		<action path="/control/uploadfile/manage" 
+				name="uploadForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/uploadfile/uploadfilelist.jsp"></forward>
+				<forward name="uploadInput" path="/WEB-INF/templates/default/backstage/uploadfile/upload.jsp"></forward>
+				<forward name="queryInput" path="/WEB-INF/templates/default/backstage/product/query_brand.jsp"></forward>
+				<forward name="upload_success" path="/WEB-INF/templates/default/backstage/uploadfile/fileuploadfinish.jsp"></forward>
+				<forward name="delete_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>
+		<action path="/control/product/product/manage" 
+				name="productForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/product/productlist.jsp"></forward>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/product/add_product.jsp"></forward>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/product/edit_product.jsp"></forward>
+				<forward name="update_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="uploadInput" path="/WEB-INF/templates/default/backstage/product/upload.jsp"></forward>
+				<forward name="queryInput" path="/WEB-INF/templates/default/backstage/product/query_product.jsp"></forward>
+				<forward name="upload_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="delete_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="selectCategory" path="/WEB-INF/templates/default/backstage/product/categorySelect.jsp"></forward>
+				<forward name="attributeoptionlist" path="/WEB-INF/templates/default/backstage/product/attributeoptionlist.jsp"></forward>
+				<forward name="attributelist" path="/WEB-INF/templates/default/backstage/product/pattributelist.jsp"></forward>
+				<forward name="attributeoptionaddinput" path="/WEB-INF/templates/default/backstage/product/attributeoptionaddinput.jsp"></forward>
+				<forward name="attributeoptioneditinput" path="/WEB-INF/templates/default/backstage/product/attributeoptioneditinput.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="metainput" path="/WEB-INF/templates/default/backstage/product/productmetainput.jsp"></forward>
+				<forward name="product_detail_list" path="/WEB-INF/templates/default/backstage/product/edit_product_detail.jsp"></forward>
+				<forward name="product_detail_group_input" path="/WEB-INF/templates/default/backstage/product/add_product_detail_group_input.jsp"></forward>
+				<forward name="product_detail_attribute_input" path="/WEB-INF/templates/default/backstage/product/add_product_detail_attribute_input.jsp"></forward>
+				<forward name="product_detail_option_input" path="/WEB-INF/templates/default/backstage/product/add_product_detail_option_input.jsp"></forward>
+				<forward name="product_detail_attribute_edit" path="/WEB-INF/templates/default/backstage/product/edit_product_detail_attribute.jsp"></forward>
+				<forward name="product_detail_option_edit" path="/WEB-INF/templates/default/backstage/product/edit_product_detail_option.jsp"></forward>
+				<forward name="product_detail_group_edit" path="/WEB-INF/templates/default/backstage/product/edit_product_detail_group.jsp"></forward>
+				
+		</action>
+		<action path="/control/product/easypopulate/manage"
+				name="easyPopulateForm"
+				scope="request"
+				parameter="method">
+					<forward name="index" path="/WEB-INF/templates/default/backstage/easypopulate/index.jsp"></forward>
+					<forward name="uploadsuccess" path="/WEB-INF/templates/default/backstage/easypopulate/uploadsuccess.jsp"></forward>
+		</action> 	
+		<action path="/control/product/style/manage" 
+				name="productStyleForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/backstage/product/productstylelist.jsp"></forward>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/product/add_productstyle.jsp"></forward>
+				<forward name="add_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="update_success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="editInput" path="/WEB-INF/templates/default/backstage/product/edit_productstyle.jsp"></forward>
+		</action>
+			<action path="/control/shopping/orderstatus/manage" 
+				scope="request"	name="orderStatusForm"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/orderstatus/orderstatuslist.jsp"/>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/orderstatus/orderstatusaddInput.jsp"/>
+				<forward name="edit" path="/WEB-INF/templates/default/backstage/orderstatus/orderstatusedit.jsp"/>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"/>
+				</action>
+		<action path="/control/shopping/ordermanage" 
+				scope="request"	name="orderForm"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/order/orderslist.jsp"/>
+				<forward name="orderdetail" path="/WEB-INF/templates/default/backstage/order/orderdetail.jsp"/>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"/>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"/>
+				<forward name="searchInput" path="/WEB-INF/templates/default/backstage/order/ordersearchinput.jsp"/>
+				<forward name="searchlist" path="/WEB-INF/templates/default/backstage/order/ordersearchlist.jsp"/>
+				<forward name="editDeliverInfo" path="/WEB-INF/templates/default/backstage/order/orderdeliverInfoEdit.jsp"/>
+				<forward name="editDeliverType" path="/WEB-INF/templates/default/backstage/order/orderDeliverTypeEdit.jsp"/>
+				<forward name="editPaymentType" path="/WEB-INF/templates/default/backstage/order/orderPaymentTypeEdit.jsp"/>
+				<forward name="editOrderItemNumber" path="/WEB-INF/templates/default/backstage/order/orderItemNumberEdit.jsp"/>
+				<forward name="editOrderDeliverFee" path="/WEB-INF/templates/default/backstage/order/orderDeliverFeeEdit.jsp"/>
+				<forward name="editOrderPayAbleFee" path="/WEB-INF/templates/default/backstage/order/orderPayAbleFeeEdit.jsp"/>
+				<forward name="editAttribute" path="/WEB-INF/templates/default/backstage/order/orderAttributeEdit.jsp"/>
+		</action>
+		<action path="/control/center/module/manage" 
+				name="moduleForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/module/modulelist.jsp"></forward>
+				<forward name="addInput" path="/WEB-INF/templates/default/backstage/module/add_module.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+				<forward name="updateInput" path="/WEB-INF/templates/default/backstage/module/updateInput.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="addFunctionInput" path="/WEB-INF/templates/default/backstage/module/addFunctionInput.jsp"></forward>
+				<forward name="editModuleFuncton" path="/WEB-INF/templates/default/backstage/module/editModuleFunction.jsp"></forward>
+				
+		</action>	
+		<action path="/control/center/role/manage" 
+				scope="request"
+				name="roleForm"
+				parameter="method">
+			<forward name="index" path="/WEB-INF/templates/default/backstage/role/rolelist.jsp"></forward>
+			<forward name="addInput" path="/WEB-INF/templates/default/backstage/role/add_role.jsp"></forward>
+			<forward name="updateInput" path="/WEB-INF/templates/default/backstage/role/updateInput.jsp"></forward>
+			<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+		</action>				
+		<action path="/control/center/acl/manage" 
+				scope="request"
+				name="aclForm"
+				parameter="method">
+			<forward name="index" path="/WEB-INF/templates/default/backstage/acl/acllist.jsp"></forward>
+			<forward name="addInput" path="/WEB-INF/templates/default/backstage/acl/add_acl.jsp"></forward>
+			<forward name="updateInput" path="/WEB-INF/templates/default/backstage/acl/updateInput.jsp"></forward>
+			<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+			<forward name="acllisttest" path="/WEB-INF/templates/default/backstage/acl/acllisttest.jsp"></forward>
+		</action>	
+		<action path="/control/center/role-acl/manage" 
+				scope="request"
+				parameter="method">
+			<forward name="index" path="/WEB-INF/templates/default/backstage/acl/acllist.jsp"></forward>
+		</action>		
+		
+		<action path="/control/center/administrator/manage" 
+				name="administratorForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/administrator/userlist.jsp"></forward>
+				<forward name="input" path="/WEB-INF/templates/default/backstage/administrator/add_administrator.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+				<forward name="updateInput" path="/WEB-INF/templates/default/backstage/administrator/updateInput.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+				<forward name="administratorRolesList" path="/WEB-INF/templates/default/backstage/administrator/administratorRolesList.jsp"></forward>
+				<forward name="addRoles4AdministratorInput" path="/WEB-INF/templates/default/backstage/administrator/addRoles4AdministratorInput.jsp"></forward>
+		</action>		
+		
+		<action path="/control/center/administrator-acl/manage" 
+				scope="request"
+				parameter="method">
+			<forward name="index" path="/WEB-INF/templates/default/acl/acllist.jsp"></forward>
+		</action> 
+		
+		<action path="/control/center/article/manage" 
+				name="articleForm"
+				scope="request"
+				parameter="method">
+			<forward name="index" path="/WEB-INF/templates/default/backstage/article/articlelist.jsp"></forward>
+			<forward name="input" path="/WEB-INF/templates/default/backstage/article/addarticle.jsp"></forward>
+			<forward name="edit" path="/WEB-INF/templates/default/backstage/article/edit.jsp"></forward>
+			<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>
+			<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+			<forward name="addArticleTypeInput" path="/WEB-INF/templates/default/backstage/article/addArticleTypeInput.jsp"></forward>
+			<forward name="editArticleType" path="/WEB-INF/templates/default/backstage/article/editArticleType.jsp"></forward>
+			<forward name="listType" path="/WEB-INF/templates/default/backstage/article/listType.jsp"></forward>
+			<forward name="editTemplate" path="/WEB-INF/templates/default/backstage/article/editTemplate.jsp"></forward>
+		</action> 	
+		<action path="/control/center/tag/manage" 
+				name="tagForm"
+				scope="request"
+				parameter="method">
+			<forward name="list" path="/WEB-INF/templates/default/backstage/tag/taglist.jsp"></forward>
+		</action> 		
+		<action path="/control/center/country/manage" 
+				name="countryForm"
+				scope="request"
+				parameter="method">
+		<forward name="list" path="/WEB-INF/templates/default/backstage/area/countrylist.jsp"></forward>
+		<forward name="input" path="/WEB-INF/templates/default/backstage/area/countryinput.jsp"></forward>
+		<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>				
+		<forward name="editinput" path="/WEB-INF/templates/default/backstage/area/countryeditinput.jsp"></forward>
+		</action> 
+		<action path="/control/center/zone/manage" 
+				name="zoneForm"
+				scope="request"
+				parameter="method">
+		<forward name="list" path="/WEB-INF/templates/default/backstage/area/zonelist.jsp"></forward>
+		<forward name="input" path="/WEB-INF/templates/default/backstage/area/zoneinput.jsp"></forward>
+		<forward name="success" path="/WEB-INF/templates/default/backstage/share/message.jsp"></forward>				
+		<forward name="editinput" path="/WEB-INF/templates/default/backstage/area/zoneeditinput.jsp"></forward>
+		
+		</action> 									
+		<action path="/control/product/attribute/manage" 
+				name="productAttributeForm"
+				scope="request"
+				parameter="method">
+		<forward name="list" path="/WEB-INF/templates/default/backstage/product/attributelist.jsp"></forward>
+		<forward name="input" path="/WEB-INF/templates/default/backstage/product/attributeinput.jsp"></forward>
+		<forward name="success" path="/WEB-INF/templates/default/share/message.jsp"></forward>				
+		<forward name="editinput" path="/WEB-INF/templates/default/backstage/product/attributeeditinput.jsp"></forward>
+		
+		</action> 	
+		<action path="/control/product/stock/manage" 
+				scope="request"
+				name="stockForm"
+				parameter="method">
+					<forward name="list" path="/WEB-INF/templates/default/backstage/stock/stocklist.jsp"></forward>
+		</action>
+<!-- 前台产品浏览模块 -->
+		<action path="/product/manage" 
+				name="frontProductForm"
+				scope="request"
+				parameter="method">
+				<forward name="list" path="/WEB-INF/templates/default/front/product/productlist.jsp"></forward>
+				<forward name="list_image" path="/WEB-INF/templates/default/front/product/productlistimage.jsp"></forward>
+				<forward name="productview" path="/WEB-INF/templates/default/front/product/productview.jsp"></forward>
+				<forward name="history" path="/WEB-INF/templates/default/front/product/producthistory.jsp"></forward>
+		</action>		
+		<!-- 工具模块，检查用户注册时用户名唯一性 -->
+		<action path="/global/checkNameExists" 
+				name="UserNameCheckForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/user/checkUserNameExists.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+		</action>	
+		<!-- 工具模块，检查用户是否已登录 -->
+		<action path="/global/checkLogin" 
+				name="UserLoginCheckForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/user/userCenter.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+		</action>	
+		<action path="/user/userReg" 
+				name="UserRegForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/user/login.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+				<forward name="add_success" path="/WEB-INF/templates/default/front/user/regsuccess.jsp"></forward>
+				<forward name="forgetPassword" path="/WEB-INF/templates/default/front/user/forgetPassword.jsp"></forward>
+		</action>		
+		<action path="/user/userLogin" 
+				name="UserRegForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/user/login.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/front/user/userCenter.jsp"></forward>
+		</action>	
+		
+		<action path="/user/shoppingcart" 
+				name="shoppingCartItemForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/shopping/cart.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+		</action>		
+		<action path="/customer/deliver" 
+				scope="request"
+				name="deliverForm"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/shopping/deliverInfo.jsp"></forward>
+				<!-- <forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward> -->
+		</action>		
+		<action path="/customer/payment-method" 
+				scope="request"
+				name="frontPayAndDeliverForm"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/shopping/paymentway.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+		</action>											
+		<action path="/customer/order-confirm" 
+				scope="request"
+				name="leaveMessageForm"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/shopping/confirm.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+		</action>
+		<action path="/customer/ordermanage" 
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/shopping/confirm.jsp"></forward>
+				<forward name="ordersList" path="/WEB-INF/templates/default/front/shopping/ordersList.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+				<forward name="finish" path="/WEB-INF/templates/default/front/shopping/orderfinish.jsp"></forward>
+				<forward name="bankremittance" path="/WEB-INF/templates/default/front/shopping/finish_bankremittance.jsp"/>
+				<forward name="cod" path="/WEB-INF/templates/default/front/shopping/finish_cod.jsp"/>
+				<forward name="net" path="/WEB-INF/templates/default/front/shopping/finish_net.jsp"/>
+				<forward name="postofficeremittance" path="/WEB-INF/templates/default/front/shopping/finish_postofficeremittance.jsp"/>
+		</action>
+		<action path="/customer/payment.do" 
+				scope="request"
+				name="orderForm"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/shopping/frontorderslist.jsp"></forward>
+				<forward name="wrong" path="/WEB-INF/templates/default/wrong.jsp"></forward>
+				<forward name="bankremittance" path="/WEB-INF/templates/default/front/shopping/finish_bankremittance.jsp"/>
+				<forward name="cod" path="/WEB-INF/templates/default/front/shopping/finish_cod.jsp"/>
+				<forward name="net" path="/WEB-INF/templates/default/front/shopping/finish_net.jsp"/>
+				<forward name="postofficeremittance" path="/WEB-INF/templates/default/front/shopping/finish_postofficeremittance.jsp"/>
+				<forward name="pay-input" path="/WEB-INF/templates/default/front/payment/index.jsp"></forward>
+		</action>
+		<action path="/search-products" 
+				scope="request"
+				name="productsSearchForm"
+				parameter="method">
+		<forward name="index" path="/WEB-INF/templates/default/front/search/input.jsp"></forward>
+		<forward name="searchresult" path="/WEB-INF/templates/default/front/search/resultslist.jsp"></forward>
+		</action>
+		
+		<action path="/initSystem" 
+				scope="request"
+				name="administratorForm"
+				parameter="method">
+		<forward name="index" path="/WEB-INF/templates/default/front/sys/init.jsp"></forward>
+		</action>	
+			
+		<action path="/manage" 
+				scope="request"
+				name="administratorForm"
+				parameter="method">
+			<forward name="index" path="/WEB-INF/templates/default/backstage/global/manage.jsp"></forward>
+		</action>	
+			
+ 		<action path="/frontarticle" 
+ 				name="frontArticleForm"
+ 				scope="request"
+ 				parameter="method">
+ 					<forward name="index" path="/WEB-INF/templates/default/front/article/frontlist.jsp"></forward>	
+ 				<forward name="newsindex" path="/WEB-INF/templates/default/front/article/frontnewslist.jsp"></forward>	
+ 				<forward name="blogindex" path="/WEB-INF/templates/default/front/article/frontbloglist.jsp"></forward>
+ 				<forward name="helpcenterindex" path="/WEB-INF/templates/default/front/article/fronthelpcenterlist.jsp"></forward>
+ 				<forward name="categorynewsindex" path="/WEB-INF/templates/default/front/article/frontcategorynewslist.jsp"></forward>
+ 		</action>	
+  		<action path="/comment" 
+ 				name="commentForm"
+ 				scope="request"
+ 				parameter="method">
+ 				<forward name="index" path="/WEB-INF/templates/default/front/comment/frontcommentslist.jsp"></forward>	
+ 		</action>	
+ 		<action path="/pay/paypal" name="paypalForm" scope="request" parameter="method">
+ 			<forward name="gotopaypal" path="/WEB-INF/templates/default/front/payment/front/gotopaypal.jsp"></forward>	
+ 			<forward name="paypalpaycomplete" path="/WEB-INF/templates/default/front/payment/front/paypalpaycomplete.jsp"></forward>					
+ 		</action>	
+ 		<action path="/pay/yeepay" name="yeepayForm" scope="request" parameter="method">
+ 			<forward name="gotoyeepay" path="/WEB-INF/templates/default/front/payment/front/gotoyeepay.jsp"></forward>	
+ 			<forward name="index" path="/WEB-INF/templates/default/payment/front/yeepayindex.jsp"></forward>					
+ 			<forward name="yeepayresponse" path="/WEB-INF/templates/default/payment/front/yeepayresponse.jsp"></forward>
+ 		</action>	
+ 		<action path="/pay/alipay" name="alipayForm" scope="request" parameter="method">
+ 			<forward name="gotoalipay" path="/WEB-INF/templates/default/front/payment/gotoalipay.jsp"></forward>	
+ 			<forward name="index" path="/WEB-INF/templates/default/front/payment/alipayindex.jsp"></forward>					
+ 			<forward name="alipayresponse" path="/WEB-INF/templates/default/front/payment/alipayresponse.jsp"></forward>
+ 		</action>	
+ 		<action path="/pay/alipayresponse" name="alipayForm" scope="request" parameter="method"> 
+ 		</action>
+ 		<action path="/pay/alipayreturn" name="alipayForm" scope="request" parameter="method">
+ 			<forward name="alipaysuccess" path="/WEB-INF/templates/default/front/payment/alipayalipaysuccess.jsp"></forward>
+ 			<forward name="alipayfail" path="/WEB-INF/templates/default/front/payment/alipayfail.jsp"></forward>
+ 		</action>
+ 		<action path="/user/manage" 
+				scope="request"
+				name="usercenterForm"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/user/userCenter.jsp"></forward>
+				<forward name="orderslist" path="/WEB-INF/templates/default/front/user/userOrdersList.jsp"></forward>
+				<forward name="passwordedit" path="/WEB-INF/templates/default/front/user/userPasswordEdit.jsp"></forward>
+				<forward name="contactInfoedit" path="/WEB-INF/templates/default/front/user/userContactInfoEdit.jsp"></forward>
+				<forward name="success" path="/WEB-INF/templates/default/front/user/userCenter.jsp"></forward>
+				
+				<forward name="getPassword" path="/WEB-INF/templates/default/front/user/getUserPassword.jsp"></forward>
+				<forward name="forgetPassword" path="/WEB-INF/templates/default/front/user/forgetPassword.jsp"></forward>
+				<forward name="editPass" path="/WEB-INF/templates/default/front/user/editPass.jsp"></forward>
+				<forward name="editPassSuccess" path="/WEB-INF/templates/default/front/user/userPasswordEditSuccess.jsp"></forward>
+				<forward name="expireTime" path="/WEB-INF/templates/default/front/user/userPasswordEditExpireTime.jsp"></forward>
+		</action>	
+ 		<action path="/user/coupon/manage" 
+			name="frontCouponForm"
+				scope="request"
+				parameter="method">
+		</action>		
+ 		<action path="/user/deliverfee/manage" 
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/front/deliverfee/deliverfee.jsp"></forward>
+		</action>		
+		<action path="/stat" name="logForm"
+				scope="request"
+				parameter="method">
+		</action>	
+		<action path="/control/analysis" name="logForm"
+				scope="request"
+				parameter="method">
+				<forward name="index" path="/WEB-INF/templates/default/backstage/analysis/viewlist.jsp"></forward>
+	<forward name="ip_date_detail" path="/WEB-INF/templates/default/backstage/analysis/ip_date_detail.jsp"></forward>
+		</action>		
+ 		<action path="/user/center" forward="/WEB-INF/templates/default/front/user/userCenter.jsp"/>
+ 		<action path="/check" forward="/WEB-INF/templates/default/front/user/userCenter.jsp"/>
+    </action-mappings>
+    <controller>
+	    <set-property property="processorClass" value="com.hnfealean.sport.managers.global.ReloadProcessor"/>
+    </controller>
+	    <message-resources parameter="MessageResources" />
+</struts-config>
+

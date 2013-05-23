@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<META http-equiv=Content-Language content=zh-CN>
+<title>${news.title}</title> 
+<meta name="description" content="${news.description}" /> 
+<meta name="keywords" content="${news.keywords}"/>
+<base href="http://127.0.0.1/">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/global/header01.css" rel="stylesheet" type="text/css">
+<link href="css/product/list.css" rel="stylesheet" type="text/css" />
+<link href="css/global/topsell.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+
+#include("header.html")
+ <div id="position">您现在的位置:&nbsp;  <a name="linkHome" href="">Angel In The Box</a>&nbsp;&nbsp;>>&nbsp;&nbsp;
+&nbsp;<a href="blog/${news.url}.html" title="${news.title}">${news.title}</a>
+	</div>
+ 
+ <div id="Right" ><!-- 页面主体 右边 -->
+${news.content.content}
+</div>
+<div>${news.date}</div>
+<!--\#include virtual="/footer.html" -->
+</body>
+</html>

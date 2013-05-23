@@ -1,0 +1,74 @@
+.inputnormal { border:1px solid ##D2D2D2; CURSOR: hand;readonly:true; background-color:#FFFFFF}
+body {  font-size: 9pt ;
+Scrollbar-Face-Color:#A4C6F9;
+Scrollbar-Highlight-Color:#A4C6F9;
+Scrollbar-Shadow-Color:#A4C6F9;
+Scrollbar-3Dlight-Color:8080FF;
+Scrollbar-Darkshadow-Color:8080FF;
+Scrollbar-Arrow-Color:FFffff;
+Scrollbar-Track-Color:E6E6FF;
+}
+.areaname{padding-left:30px}
+td {
+font-size: 9pt ;line-height: 14pt 
+}
+
+.frm_btn
+{
+    BORDER-TOP-WIDTH: 1px;
+    BORDER-LEFT-WIDTH: 1px;
+    BORDER-BOTTOM-WIDTH: 1px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: #4289cb;
+    BORDER-RIGHT-WIDTH: 1px
+}
+A.a03:link {text-decoration:none;color:#ffffff;}
+A.a03:visited {text-decoration:none;color:#ffffff;}
+A.a03:active {text-decoration:none;color:#ffffff;}
+A.a03:hover {text-decoration:underline;color:#ffffff;}
+A:link {
+	COLOR: #039
+}
+A:visited {
+	COLOR: #039
+}
+A:hover {
+	COLOR: #f60
+}
+.pagesplit a{
+border:1px solid #CAC1BC;
+line-height:14px;
+margin:0 2px;
+padding:3px 6px;text-decoration:none !important
+}
+
+.pagesplit a,.pagesplit a:link,.pagesplit a:visited {
+color:#634A3B;
+}
+.pagesplit a:hover{background:#72b2da;color:#ffffff}
+.pagesplit{display:block;float:right;padding-right:20px;line-height:30px}
+.thisLink{border:1px solid #CAC1BC;background:#E7E4E1 none repeat scroll 0 0;font-weight:bold}
+.Ptable .tdTitle {
+background:#F5FAFE none repeat scroll 0 0;
+text-align:right;
+width:110px;font-size:12px;
+}
+.Ptable td {
+background:#FFFFFF none repeat scroll 0 0;
+padding:2px 5px;
+}
+.Ptable {
+background:#CCCCCC none repeat scroll 0 0;
+}
+.Ptable th {
+padding:5px;}
+.whitelink{color:#999999 !important;font-size:12px;font-weight:normal;margin-left:5px;}
+.whitelink:hover{color:#FF6600 !important;}
+
+.stat_header{font-weight:bold}
+.stat_content{margin-left:10px}
+.accessurl{width:400px;overflow:hidden;line-height:20px;height:20px}
+.refererurl{width:400px;overflow:hidden;line-height:20px;height:20px}
+.fram{width:1300px}
+.fram .stat_menu{width:100px;overflow:hidden;float:left}
+.fram .con{width:1200px;float:left}

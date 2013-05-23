@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_attributeoption" name="com.hnfealean.sport.model.product.AttributeOption">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="value" not-null="true" length="10" access="field"/>
+    <many-to-one column="productId" access="field" name="product" class="com.hnfealean.sport.model.product.Product"/>
+    <many-to-one column="attributeId" lazy="false" access="field" name="attribute" class="com.hnfealean.sport.model.product.ProductAttribute"/>
+  </class>
+</hibernate-mapping>

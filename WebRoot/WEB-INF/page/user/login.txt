@@ -1,0 +1,200 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ include file="/WEB-INF/page/share/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<jsp:include page="/location_check.html"></jsp:include>
+		<title>用户登录 </title>
+<link href="css/product/list.css" rel="stylesheet" type="text/css" />		
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/global/header01.css" rel="stylesheet" type="text/css"/>
+<link href="css/product/list.css" rel="stylesheet" type="text/css" />
+<link href="css/global/topsell.css" rel="stylesheet" type="text/css" />
+<link href="css/global/header.css" rel="stylesheet" type="text/css" />
+<link href="css/global/reg.css" rel="stylesheet" type="text/css">
+		<link href="css/global/header.css" rel="stylesheet" type="text/css">
+		<link href="css/global/reg.css" rel="stylesheet" type="text/css">
+		<SCRIPT language=JavaScript src="js/FoshanRen.js"></SCRIPT>
+		<SCRIPT language=JavaScript src="js/xmlhttp.js"></SCRIPT>
+		<SCRIPT LANGUAGE="JavaScript">
+ <!--
+function checkForm(){
+	var form = document.forms[0];
+	if(form.username.value=="" || form.username.value.length<6){
+		alert("请输入长度6位以上的用户名");
+		return false;
+	}
+	if(form.password.value=="" || form.password.value.length<6){
+		alert("请输入长度6位以上的密码");
+		return false;
+	}
+	if(form.password.value!=form.repassword.value){
+		alert("两次输入的密码不正确");
+		return false;
+	}
+	if(/[\W]/g.test(form.username.value)){
+		alert("用户名中不能含有中文");
+		return false;
+	};
+	return true;
+}
+function checkUsername(){
+	var form = document.forms[0];
+	var username = form.username.value;
+	var viewobj = document.getElementById("checkResult");
+	viewobj.innerHTML = "正在检测中...";
+	send_request(function(value){viewobj.innerHTML=value},
+	'<html:rewrite action="user/reg"/>?method=isUserExsit&username='+ username, true);
+}
+ //-->
+ </SCRIPT>
+	</head>
+
+	<body>
+		<jsp:include page="/WEB-INF/page/share/Head.jsp" />
+
+		<!-- 检证用户是否存在表单 end -->
+		<TABLE cellSpacing=0 cellPadding=0 align=center border=0>
+			<TBODY>
+				<TR>
+					<TD background="images/login/login_03.jpg">
+						&nbsp;
+					</TD>
+				</TR>
+				<TR>
+					<TD height=15>
+						&nbsp;
+					</TD>
+				</TR>
+
+			</TBODY>
+		</TABLE>
+<c:if test="${!empty message}">
+		<DIV id="errorinfo">
+			<TABLE cellSpacing=1 cellPadding=8 width="78%" align="center"
+				bgColor="#dd9988" border=0>
+				<TBODY>
+					<TR>
+						<TD bgColor="#ffffd5" align="left">
+							<IMG height="17" src="images/buy/exclamation-error-red.gif"
+								width="17" style="float:left">
+							<DIV id="errorMessage">${message}</DIV>
+						</TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+		</DIV>
+</c:if>
+		<div id="Content">
+
+			<form action="user/userLogin.do?directUrl=${directUrl}" method="post" name="userRegForm">
+				<input name="method" value="login" type="hidden" />
+			
+				<table width="80%" cellspacing="0" cellpadding="10" border="0"
+					align="center">
+					<tbody>
+						<tr>
+							<td width="100%" valign="top" height="50" >
+								<table width="95%" height="25" cellspacing="0" cellpadding="0"
+									border="0" align="center">
+									<tbody>
+										<tr>
+											<td width="3%">
+												<img width="16" height="15" align="absBottom"
+													src="images/global/loginicon1.gif">
+											</td>
+											<td width="97%" align="left" class="logintitle">
+												<h2>
+													用户登录
+												</h2>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table width="95%" cellspacing="0" cellpadding="0" border="0"
+									align="center">
+									<tbody>
+										<tr>
+											<td width="40%" align="right" class="c5">
+												<strong>邮箱：</strong>
+											</td>
+											<td width="27%">
+												<input type="text" maxlength="20" size="20" id="email"
+													name="email">
+											</td>
+											<td align="left">
+												&nbsp;
+											</td>
+										</tr>
+										<tr>
+											<td height="15" align="right" colspan="3"></td>
+										</tr>
+										<tr>
+											<td align="right" class="c5">
+												<strong>密码：</strong>
+											</td>
+											<td>
+												<input type="password" maxlength="16" size="20"
+													name="password">
+											</td>
+											<td width="33%" align="left">
+											<!--	<a target="_blank" class="ablue"
+													href="/mapping/user/forgetpassword.htm">忘记密码了？</a>-->
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table width="95%" cellspacing="0" cellpadding="0" border="0"
+									align="center">
+									<tbody>
+										<tr>
+											<td class="STYLE1">
+												注意：如果你在网吧等公众场合的机器上登录本网，请在离开机器前退出，以免账户被他人冒用造成不必要的麻烦！
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table width="95%" cellspacing="0" cellpadding="0" border="0"
+									align="center">
+									<tbody>
+										<tr>
+											<td width="34%" align="right">
+												&nbsp;
+											</td>
+											<td width="8%" valign="middle" align="left">
+												<input type="image" border="0" alt=""
+													src="images/global/regloginbutton2.jpg"
+													name="ImageButton1">
+													&nbsp;
+											</td>
+											<td width="58%" valign="middle" align="left">
+												如果你还未注册，
+												<span style="font-size: 14px;"><a class="ablue2"
+													href="/user/userReg.do?directurl=${param.directUrl}">请免费注册</a>！</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</form>
+		</div>
+		<jsp:include page="/WEB-INF/page/share/Foot.jsp" />
+</html>

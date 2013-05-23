@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_alipay_request" name="com.hnfealean.sport.model.payment.alipay.AlipayRequest">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="alipaysubmit" access="field"/>
+    <property name="receive_mobile" access="field"/>
+    <property name="logistics_fee" access="field"/>
+    <property name="notify_url" access="field"/>
+    <property name="payment_type" access="field"/>
+    <property name="service" access="field"/>
+    <property name="_input_charset" access="field"/>
+    <property name="logistics_type" access="field"/>
+    <property name="price" access="field"/>
+    <property name="out_trade_no" access="field"/>
+    <property name="receive_address" access="field"/>
+    <property name="logistics_payment" access="field"/>
+    <property name="subject" access="field"/>
+    <property name="receive_zip" access="field"/>
+    <property name="quantity" access="field"/>
+    <property name="receive_name" access="field"/>
+    <property name="body" access="field"/>
+    <property name="return_url" access="field"/>
+    <property name="show_url" access="field"/>
+    <property name="receive_phone" access="field"/>
+    <property name="sign" access="field"/>
+    <property name="sign_type" access="field"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+ <LINK href="css/newhead.css" type=text/css rel=stylesheet>
+<DIV class="top_div">
+<div class="top_div_logo">
+<a href=""><img class="logo" src="/images/global/logo.gif" title="LOGO-AngelInTheBox-盒中天使"></a></div>
+<div class="top_div_top_menu">
+
+<link rel="stylesheet" href="css/lavalamp_test.css" type="text/css" media="screen"> 
+<script type="text/javascript" src="js/jquery-1.1.3.1.min.js"></script> 
+<script type="text/javascript" src="js/jquery.easing.min.js"></script> 
+<script type="text/javascript" src="js/jquery.lavalamp.min.js"></script> 
+<script type="text/javascript"> 
+    $(function() {
+        $("#1, #2, #3").lavaLamp({
+            fx: "backout", 
+            speed: 700,
+            click: function(event, menuItem) {
+                return true;
+            }
+        });
+    });
+</script> 
+<ul class="lavaLampWithImage" id="1"> 
+    <li><a href="#">首　页</a></li> 
+    <li><a href="user/center.do">个人中心</a></li> 
+    <li><a href="user/shoppingcart.do">购物车</a></li> 
+    <li><a href="#">帮助中心</a></li> 
+</ul> 
+
+ 		</div>
+</DIV>
+
+
+<DIV id=menu align=center>
+<ul class="menu_ul">
+<li><a href="book-video-soft-wholesale/">图书音像软件</a><li>
+<li><a href="electric-wholesale/">消费电子</a><li>
+<li><a href="daily-goods-wholesale/">日用消费品</a><li>
+</ul>
+    <FORM name="tsearch-panel-fields"  
+          action="search-products.do" class="tsearch-panel-fields"
+          method=post><input type="hidden" name="method" value="search"/>
+    <input accesskey="s" autocomplete="off" id="q" name="key">
+    <button type="submit">搜索</button>
+ 
+            </FORM>
+
+</DIV>

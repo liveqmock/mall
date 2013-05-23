@@ -1,0 +1,4 @@
+#foreach($product in ${products})
+<a href="${constantString.PRODUCT}${constantString.SEPERATORSLASH}${product.shtml_File_Name}${constantString.PRODUCTFILESUFFIX}">
+${product.name}</a>
+#end

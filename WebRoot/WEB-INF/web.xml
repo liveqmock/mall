@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+		<!-- 定义Spring配置文件位置 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext-*.xml</param-value>
+	</context-param>
+		<!-- 使用监听器，对Spring容器进行实例化 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+		<!-- 采用OpenSessionInView模式,防止DAO代码每次都打开关闭Session -->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+		<!-- 编码处理过滤器 -->
+	<filter>
+		<filter-name>Spring character encoding filter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+		<!-- OScacheFilter  -->
+	<!-- <filter>
+		<filter-name>OsCacheFilter</filter-name>
+		<filter-class>com.opensymphony.oscache.web.filter.CacheFilter</filter-class>
+		<init-param>
+			<param-name>time</param-name>
+			<param-value>3600</param-value>
+		</init-param>
+		<init-param>
+			<param-name>scope</param-name>
+			<param-value>application</param-value>
+		</init-param>
+	</filter>	 -->
+		<!--分页filter  -->
+	<filter>
+		<filter-name>pagerFilter</filter-name>
+		<filter-class>com.hnfealean.sport.pageset.PagerFilter</filter-class>
+	</filter>
+		<!-- 检验购物车是否为空 -->
+	<filter>
+		<filter-name>Check null shoppingCart</filter-name>
+		<filter-class>com.hnfealean.sport.web.NullShoppingCartCheck</filter-class>
+	</filter>
+		<!-- 检查用户是否登录 -->
+	<filter>
+		<filter-name>Validate User</filter-name>
+		<filter-class>com.hnfealean.sport.web.UserValidateFilter</filter-class>
+	</filter>	
+		<!-- 检查管理员是否登录 -->
+	<filter>
+		<filter-name>Validate Administrator</filter-name>
+		<filter-class>com.hnfealean.sport.web.AdministratorValidateFilter</filter-class>
+	</filter>
+		<!-- 验证码图片生成 -->
+	<!-- <filter>
+		<filter-name>jCaptchaFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter> -->
+	<!-- Standard Action Servlet Configuration (with debugging) -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>DisplayChart</servlet-name>
+		<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>utilDateConverter</servlet-name>
+		<servlet-class>com.hnfealean.sport.web.UtilDateConverterInitServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+
+	<servlet-mapping>
+	<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>DisplayChart</servlet-name>-->
+<!--		<url-pattern>/DisplayChart</url-pattern>-->
+<!--	</servlet-mapping>-->
+    <!--<filter>  
+        <filter-name>UrlRewriteFilter</filter-name>  
+        <filter-class>  
+            org.tuckey.web.filters.urlrewrite.UrlRewriteFilter  
+        </filter-class>  
+        <init-param>  
+            <param-name>logLevel</param-name>  
+            <param-value>WARN</param-value>  
+        </init-param>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>UrlRewriteFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  --> 
+	<filter-mapping>
+		<filter-name>Spring character encoding filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>pagerFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+<!-- 
+	<filter-mapping>
+		<filter-name>OsCacheFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+ -->	
+	<filter-mapping>
+		<filter-name>Validate User</filter-name>
+		<url-pattern>/customer/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Validate Administrator</filter-name>
+		<url-pattern>/control/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Check null shoppingCart</filter-name>
+		<url-pattern>/customer/*</url-pattern>
+	</filter-mapping>
+
+	<!-- <filter-mapping>
+		<filter-name>jCaptchaFilter</filter-name>
+		<url-pattern>/captcha</url-pattern>
+	</filter-mapping> -->
+		<!-- Session超时定义,单位为分钟 -->
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+		<!-- 错误页面定义 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/miss.html</location>
+	</error-page>
+	
+</web-app>

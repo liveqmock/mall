@@ -1,0 +1,862 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>SHOP++演示商城 - Powered By SHOP++</title>
+<meta name="Author" content="SHOP++ Team" />
+<meta name="Copyright" content="SHOP++" />
+<meta name="keywords" content="网店系统,商城系统,独立网店,购物系统,网购系统,网店程序,电子商务系统,B2C系统" />
+<meta name="description" content="SHOP++网店系统是基于Java技术的开源免费B2C网上开店软件，是一款安全、高效的商城系统、网上商城系统、独立网店，是您网上开店的最佳选择。SHOP++为大、中、小企业提供一个安全、高效、强大的电子商务解决方案，协助企业快速构建、部署和管理其电子商务平台，拓展企业销售渠道，突显电子商务商业价值，致力于推动开源技术和电子商务技术的发展而不断努力。" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="/template/shop/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/template/shop/css/shop.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+	<script type="text/javascript" src="/template/common/js/belatedPNG.js"></script>
+	<script type="text/javascript">
+		// 解决IE6透明PNG图片BUG
+		DD_belatedPNG.fix(".belatedPNG");
+	</script>
+<![endif]-->
+</head>
+<body class="index">
+<div id="header" class="header belatedPNG">
+	<div class="headerTop belatedPNG">
+		<div class="headerTopContent">
+			<div class="headerLoginInfo">
+				您好<span id="headerLoginMemberUsername"></span>，欢迎来到SHOP++演示商城!
+				<a href="javascript:void(0);" id="headerShowLoginWindow">登录</a>
+				<a href="/shop/member_center!index.action" id="headerMemberCenter">会员中心</a>
+				<a href="javascript:void(0);" id="headerShowRegisterWindow">注册</a>
+				<a href="/shop/member!logout.action" id="headerLogout">[退出]</a>
+			</div>
+			<div class="headerTopNav">
+						<a href="javascript: addFavorite('http://www.shopxx.cn','SHOP++演示商城')">收藏本站</a>
+						|
+						<a href="/shop/article_list/help.html">帮助中心</a>
+						|
+						<a href="http://www.shopxx.net/service.html" target="_blank">联系我们</a>
+						|
+						<a href="http://bbs.shopxx.net" target="_blank">官方论坛</a>
+						|
+						<a href="http://www.shopxx.net" target="_blank">官方网站</a>
+						
+			</div>
+		</div>
+	</div>
+	<div class="headerMiddle">
+		<div class="headerInfo">
+			7×24小时服务热线：<strong>400-8888888</strong>
+		</div>
+		<div class="headerLogo">
+			<a href="/"><img class="belatedPNG" src="/upload/logo.gif" alt="SHOP++演示商城" /></a>
+		</div>
+		<div class="headerSearch belatedPNG">
+			<form id="goodsSearchForm" action="/shop/goods!search.action" method="post">
+				<div class="headerSearchText">
+					<input type="text" id="goodsSearchKeyword" name="pager.keyword" value="请输入关键词..." />
+				</div>
+				<input type="submit" class="headerSearchButton" value="" />
+				<div class="hotKeyword">
+					热门关键词: 
+						<a href="/shop/goods!search.action?pager.keyword=%E8%8B%B9%E6%9E%9C">苹果</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E6%9D%BE%E4%B8%8B">松下</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E7%B4%A2%E5%B0%BC">索尼</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E4%B8%89%E6%98%9F">三星</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E8%AF%BA%E5%9F%BA%E4%BA%9A">诺基亚</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E6%B5%B7%E5%B0%94">海尔</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E6%83%A0%E6%99%AE">惠普</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E4%B8%9C%E8%8A%9D">东芝</a>
+						<a href="/shop/goods!search.action?pager.keyword=LG">LG</a>
+						<a href="/shop/goods!search.action?pager.keyword=%E8%81%94%E6%83%B3">联想</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="headerBottom">
+		<input type="button" id="showCartItemList" class="cartItemListButton" value="" onclick="window.open('/shop/cart_item!list.action')" />
+		<ul id="cartItemListDetail"></ul>
+		<input type="button" class="orderButton" value="" onclick="window.open('/shop/cart_item!list.action')" />
+		<div class="headerMiddleNav">
+			<div class="headerMiddleNavLeft belatedPNG"></div>
+			<ul class="headerMiddleNavContent belatedPNG">
+						<li>
+							<a href="/">首页</a>
+						</li>
+						<li>
+							<a href="/shop/goods_list/office_computer.html">电脑办公</a>
+						</li>
+						<li>
+							<a href="/shop/goods_list/digital_phone.html">手机数码</a>
+						</li>
+						<li>
+							<a href="/shop/goods_list/large_household_appliances.html">大家电</a>
+						</li>
+						<li>
+							<a href="/shop/goods_list/kitchen_appliances.html">厨卫家电</a>
+						</li>
+						<li>
+							<a href="/shop/goods_list/electrical_appliances.html">日用电器</a>
+						</li>
+						<li>
+							<a href="/shop/article_list/help.html">帮助中心</a>
+						</li>
+						<li>
+							<a href="/shop/leave_message.html">在线留言</a>
+						</li>
+			</ul>
+			<div class="headerMiddleNavRight belatedPNG"></div>
+		</div>
+	</div>
+</div>
+	<div class="body">
+		<div class="bodyLeft">
+			<div class="goodsCategory">
+            	<div class="top">商品分类</div>
+            	<div class="middle clearfix">
+            		<ul id="goodsCategoryMenu" class="menu">
+	            				<li class="mainCategory">
+									<a href="/shop/goods_list/office_computer.html">电脑办公</a>
+								</li>
+										<li>
+											<a href="/shop/goods_list/computer_products.html"><span class="icon">&nbsp;</span>电脑产品</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/notebook.html">
+																<span class="icon">&nbsp;</span>
+																笔记本电脑
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/desktop_pcs.html">
+																<span class="icon">&nbsp;</span>
+																台式电脑
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/computer_accessories.html"><span class="icon">&nbsp;</span>电脑配件</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/cpu.html">
+																<span class="icon">&nbsp;</span>
+																CPU
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/motherboard.html">
+																<span class="icon">&nbsp;</span>
+																主板
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/office_supplies.html"><span class="icon">&nbsp;</span>办公耗材</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/printer.html">
+																<span class="icon">&nbsp;</span>
+																打印机
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/projector.html">
+																<span class="icon">&nbsp;</span>
+																投影机
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/office.html"><span class="icon">&nbsp;</span>办公用品</a>
+										</li>
+	            				<li class="mainCategory">
+									<a href="/shop/goods_list/digital_phone.html">手机数码</a>
+								</li>
+										<li>
+											<a href="/shop/goods_list/mobile_communication.html"><span class="icon">&nbsp;</span>手机通讯</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/mobile.html">
+																<span class="icon">&nbsp;</span>
+																手机
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/interphone.html">
+																<span class="icon">&nbsp;</span>
+																对讲机
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/mobile_phone_accessories.html"><span class="icon">&nbsp;</span>手机配件</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/battery.html">
+																<span class="icon">&nbsp;</span>
+																电池
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/bluetooth_headset.html">
+																<span class="icon">&nbsp;</span>
+																蓝牙耳机
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/memory_card.html">
+																<span class="icon">&nbsp;</span>
+																储存卡
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/digital_audio.html"><span class="icon">&nbsp;</span>数码影音</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/digital_cameras.html">
+																<span class="icon">&nbsp;</span>
+																数码摄像机
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/slr.html">
+																<span class="icon">&nbsp;</span>
+																单反相机
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/digital_accessories.html"><span class="icon">&nbsp;</span>数码配件</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/digital_package.html">
+																<span class="icon">&nbsp;</span>
+																数码包
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/cleaning_supplies.html">
+																<span class="icon">&nbsp;</span>
+																清洁用品
+															</a>
+														</li>
+												</ul>
+										</li>
+	            				<li class="mainCategory">
+									<a href="/shop/goods_list/large_household_appliances.html">大家电</a>
+								</li>
+										<li>
+											<a href="/shop/goods_list/tv_audio.html"><span class="icon">&nbsp;</span>电视音响</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/tv.html">
+																<span class="icon">&nbsp;</span>
+																电视机
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/audio.html">
+																<span class="icon">&nbsp;</span>
+																音响
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/dvd.html">
+																<span class="icon">&nbsp;</span>
+																DVD
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/fridge_air_conditioning.html"><span class="icon">&nbsp;</span>冰箱空调</a>
+												<ul>
+														<li>
+															<a href="/shop/goods_list/refrigerator.html">
+																<span class="icon">&nbsp;</span>
+																冰箱
+															</a>
+														</li>
+														<li>
+															<a href="/shop/goods_list/air_conditioning.html">
+																<span class="icon">&nbsp;</span>
+																空调
+															</a>
+														</li>
+												</ul>
+										</li>
+										<li>
+											<a href="/shop/goods_list/water_heater.html"><span class="icon">&nbsp;</span>热水器</a>
+										</li>
+										<li>
+											<a href="/shop/goods_list/washing_machine.html"><span class="icon">&nbsp;</span>洗衣机</a>
+										</li>
+					</ul>
+            	</div>
+                <div class="bottom"></div>
+			</div>
+		</div>
+		<div class="bodyRight">
+			<div class="slider">
+				<div id="sliderScrollable" class="scrollable">
+					<div class="items">
+						<div>
+							<img src="/upload/banner1.jpg" />
+						</div>
+						<div>
+							<img src="/upload/banner2.jpg" />
+						</div>
+						<div>
+							<img src="/upload/banner3.jpg" />
+						</div>
+					</div>
+					<div class="navi"></div>
+					<div class="prevNext">
+						<a class="prev browse left"></a>
+						<a class="next browse right"></a>
+					</div>
+				</div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotGoods">
+				<div class="title">
+					<strong>热卖商品</strong>HOT
+				</div>
+				<a class="prev browse"></a>
+						<div id="hotGoodsScrollable" class="scrollable">
+							<div class="items">
+										<div>
+										<ul>
+									<li>
+										<a href="/html/201012/b255a318f7614c5b9aa43340b643213e.html">
+											<img src="/upload/201012/9d7fc4cab81b4b628d7da77fe93306c2_thumbnail.jpg" alt="诺基亚（NOKIA）C6-00导航版 3G手机" />
+											<p title="诺基亚（NOKIA）C6-00导航版 3G手机">诺基亚（NOKIA）C6-...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/2a0a0297a03b4239a8de6b81ac72b3c2.html">
+											<img src="/upload/201012/0d3aedf297ed4c20a291aac05eedcef6_thumbnail.jpg" alt="苹果（APPLE）iPhone 4 16G" />
+											<p title="苹果（APPLE）iPhone 4 16G">苹果（APPLE）iPhon...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/6a75ae7c17134d36a878dc28e3375b8b.html">
+											<img src="/upload/201012/97b430d9ecf34f65b54cca430232395c_thumbnail.jpg" alt="诺基亚（Nokia）N97 mini" />
+											<p title="诺基亚（Nokia）N97 mini">诺基亚（Nokia）N97...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/3c24ed8744114b14a81ee762c1fa58a0.html">
+											<img src="/upload/201012/2abb429587d14d718872ee91e88f3fbf_thumbnail.jpg" alt="诺基亚（NOKIA）5230 3G手机" />
+											<p title="诺基亚（NOKIA）5230 3G手机">诺基亚（NOKIA）523...</p>
+										</a>
+									</li>
+										</ul>
+										</div>
+										<div>
+										<ul>
+									<li>
+										<a href="/html/201012/1acc1d1a1a414314ac7483248f89160d.html">
+											<img src="/upload/201012/42b38dc4979a4d04a945c6f99856dff9_thumbnail.jpg" alt="奥克斯空调KFR-25GW/VH-1" />
+											<p title="奥克斯空调KFR-25GW/VH-1">奥克斯空调KFR-25GW...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/bdfd43b6f91649038109959caae4c467.html">
+											<img src="/upload/201012/04e765d012a54dcea94bf2e738d2c652_thumbnail.jpg" alt="奥克斯空调1P挂机" />
+											<p title="奥克斯空调1P挂机">奥克斯空调1P挂机</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/3ab59b28fe0d48b1a77db5bebc57b234.html">
+											<img src="/upload/201012/fa6c6d5ac37d4653a56d05de6a28b2fc_thumbnail.jpg" alt="太阳能热水器" />
+											<p title="太阳能热水器">太阳能热水器</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/0452d42fdd3c4a90b8652e71a786402c.html">
+											<img src="/upload/201012/86ab82a5fe784303939079cc68675f6f_thumbnail.jpg" alt="电热水器" />
+											<p title="电热水器">电热水器</p>
+										</a>
+									</li>
+										</ul>
+										</div>
+							</div>
+						</div>
+				<a class="next browse"></a>
+			</div>
+		</div>
+		<div class="blank"></div>
+		<img src="/upload/banner4.jpg" />
+		<div class="blank"></div>
+		<div class="newGoods">
+			<div class="left">
+				<ul id="newGoodsTab" class="newGoodsTab">
+							<li>
+								电脑办公
+							</li>
+							<li>
+								手机数码
+							</li>
+							<li>
+								大家电
+							</li>
+							<li>
+								厨卫家电
+							</li>
+				</ul>
+			</div>
+			<div class="right">
+						<ul class="newGoodsTabContent hidden">
+									<li>
+										<a href="/html/201012/1b28245aefb84ed5afe394defcc95d7e.html">
+											<img src="/upload/201012/e3bb7e8e21fa457fbf652f15f863e4b1_thumbnail.jpg" alt="东芝笔记本L630-17R" />
+											<p title="东芝笔记本L630-17R">东芝笔记本L630-17R...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/819d7009621543b3987700d7cc38b548.html">
+											<img src="/upload/201012/583cea9cb869422cafe4bf4d3156e62a_thumbnail.jpg" alt="ThinkPad E40（0578-A37）14英寸笔记本电脑" />
+											<p title="ThinkPad E40（0578-A37）14英寸笔记本电脑">ThinkPad E40（0578...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/9e2282f9a7e746a5af05b75ed88765ac.html">
+											<img src="/upload/201012/83c34a435ea34baf85a0be090ad4a294_thumbnail.jpg" alt="三星（samsung）NP-RV408-S02CN 14英寸笔记本电脑" />
+											<p title="三星（samsung）NP-RV408-S02CN 14英寸笔记本电脑">三星（samsung）NP-...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/5b952c7044684c0d8cf76114093cee9f.html">
+											<img src="/upload/201012/2b7fece0e8b4463498b4babc0a4c4e9a_thumbnail.jpg" alt="宏碁（acer）AS4738G-462G32Mnkk 14英寸笔记本电脑" />
+											<p title="宏碁（acer）AS4738G-462G32Mnkk 14英寸笔记本电脑">宏碁（acer）AS4738...</p>
+										</a>
+									</li>
+						</ul>
+						<ul class="newGoodsTabContent hidden">
+									<li>
+										<a href="/html/201012/f9dde2ca12ae4b2b8ed21ddc9a3482a0.html">
+											<img src="/upload/201012/f77309b2b3584b29b46ff3ad48abf7f6_thumbnail.jpg" alt="索尼W370" />
+											<p title="索尼W370">索尼W370</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/65d032e829ea41fca7a497a9685998ef.html">
+											<img src="/upload/201012/d869d489a70a4d51ab86d2f1698dbfe4_thumbnail.jpg" alt="松下HC5230摄像机" />
+											<p title="松下HC5230摄像机">松下HC5230摄像机</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/ba9215e9aede45d09142061ca1138e3a.html">
+											<img src="/upload/201012/af872b8bc9f6484599fa7a61e91aeae7_thumbnail.jpg" alt="JVC GZ-HD620ACM 真高清硬盘摄像机" />
+											<p title="JVC GZ-HD620ACM 真高清硬盘摄像机">JVC GZ-HD620ACM 真...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/23891262298b439c9e6cea1f7ae96a68.html">
+											<img src="/upload/201012/b9fdc512bc3b4c418fb327c89f5ca19a_thumbnail.jpg" alt="JVC GZ-HM330ACM" />
+											<p title="JVC GZ-HM330ACM">JVC GZ-HM330ACM</p>
+										</a>
+									</li>
+						</ul>
+						<ul class="newGoodsTabContent hidden">
+									<li>
+										<a href="/html/201012/6e74330eb03440b08b513ef7818151c5.html">
+											<img src="/upload/201012/75458b82c9c045bebf5863a0a60e8d02_thumbnail.jpg" alt="BCD-268WBCS/ 三门/268L/促销/特价/6180/全国联保/无霜" />
+											<p title="BCD-268WBCS/ 三门/268L/促销/特价/6180/全国联保/无霜">BCD-268WBCS/ 三门/...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/0fb70d08ee714d22b5be9c1c6767d299.html">
+											<img src="/upload/201012/7e3bd9b929284821ba2b16b8cbc742e9_thumbnail.jpg" alt="LG GR-B2074FNA 10年保障 高效抗菌除臭" />
+											<p title="LG GR-B2074FNA 10年保障 高效抗菌除臭">LG GR-B2074FNA 10年...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/6872f3692870465b8c9766977f010076.html">
+											<img src="/upload/201012/51653dc720c6435f9c6158404c6b3094_thumbnail.jpg" alt="海尔 XPM30-2008洗衣机" />
+											<p title="海尔 XPM30-2008洗衣机">海尔 XPM30-2008洗衣...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/b20c8ca5dd54442fb80aefa65d48b564.html">
+											<img src="/upload/201012/f76ab5499f4d4281806b85483184900b_thumbnail.jpg" alt="海尔 XQB60-Z918洗衣机" />
+											<p title="海尔 XQB60-Z918洗衣机">海尔 XQB60-Z918洗衣...</p>
+										</a>
+									</li>
+						</ul>
+						<ul class="newGoodsTabContent hidden">
+									<li>
+										<a href="/html/201012/1034ee69bdc74d55875e4413c484a392.html">
+											<img src="/upload/201012/1065a8c6df9c49209e769c64ce762a4f_thumbnail.jpg" alt="东芝（TOSHIBA） N10PJ DSC数码温控1.0L（相当于国内标准3L） 微电脑饭煲" />
+											<p title="东芝（TOSHIBA） N10PJ DSC数码温控1.0L（相当于国内标准3L） 微电脑饭煲">东芝（TOSHIBA） N1...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/ae58d6a52a5c451dbdb676ce3526656b.html">
+											<img src="/upload/201012/93be4a87b23c46aba72b3540e1db3e08_thumbnail.jpg" alt="松下（Panasonic）SR-DH152 备长炭黑锅电饭煲 4L 全面波纹备长碳黑锅内胆" />
+											<p title="松下（Panasonic）SR-DH152 备长炭黑锅电饭煲 4L 全面波纹备长碳黑锅内胆">松下（Panasonic）S...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/c59a5e8c79f844a98d5874073b52ed43.html">
+											<img src="/upload/201012/36236a3148c64558aa94c150c447680f_thumbnail.jpg" alt="格兰仕（galanz）4升液晶预约显示屏B801T-40F8G" />
+											<p title="格兰仕（galanz）4升液晶预约显示屏B801T-40F8G">格兰仕（galanz）4升...</p>
+										</a>
+									</li>
+									<li>
+										<a href="/html/201012/ca86aa7c61d64c14becc3109773167f7.html">
+											<img src="/upload/201012/5f0a99e0ceb242cca936b9fd36dba322_thumbnail.jpg" alt="美的（midea）FZ4010C 天姿系列 电脑版 电饭煲 4L 2.0mm黄晶蜂窝玉铜釜" />
+											<p title="美的（midea）FZ4010C 天姿系列 电脑版 电饭煲 4L 2.0mm黄晶蜂窝玉铜釜">美的（midea）FZ401...</p>
+										</a>
+									</li>
+						</ul>
+			</div>
+		</div>
+		<div class="blank"></div>
+		<div class="bodyLeft">
+			<div class="hotGoods">
+				<div class="top">热销排行</div>
+				<div class="middle clearfix">
+					<ul>
+								<li class="number1">
+									<span class="icon">&nbsp;</span><a href="/html/201012/b255a318f7614c5b9aa43340b643213e.html" title="诺基亚（NOKIA）C6-00导航版 3G手机">诺基亚（NOKIA）C6-00导航...</a>
+								</li>
+								<li class="number2">
+									<span class="icon">&nbsp;</span><a href="/html/201012/2a0a0297a03b4239a8de6b81ac72b3c2.html" title="苹果（APPLE）iPhone 4 16G">苹果（APPLE）iPhone 4 16...</a>
+								</li>
+								<li class="number3">
+									<span class="icon">&nbsp;</span><a href="/html/201012/6a75ae7c17134d36a878dc28e3375b8b.html" title="诺基亚（Nokia）N97 mini">诺基亚（Nokia）N97 mini</a>
+								</li>
+								<li class="number4">
+									<span class="icon">&nbsp;</span><a href="/html/201012/3c24ed8744114b14a81ee762c1fa58a0.html" title="诺基亚（NOKIA）5230 3G手机">诺基亚（NOKIA）5230 3G手...</a>
+								</li>
+								<li class="number5">
+									<span class="icon">&nbsp;</span><a href="/html/201012/1acc1d1a1a414314ac7483248f89160d.html" title="奥克斯空调KFR-25GW/VH-1">奥克斯空调KFR-25GW/VH-1</a>
+								</li>
+								<li class="number6">
+									<span class="icon">&nbsp;</span><a href="/html/201012/bdfd43b6f91649038109959caae4c467.html" title="奥克斯空调1P挂机">奥克斯空调1P挂机</a>
+								</li>
+								<li class="number7">
+									<span class="icon">&nbsp;</span><a href="/html/201012/3ab59b28fe0d48b1a77db5bebc57b234.html" title="太阳能热水器">太阳能热水器</a>
+								</li>
+								<li class="number8">
+									<span class="icon">&nbsp;</span><a href="/html/201012/0452d42fdd3c4a90b8652e71a786402c.html" title="电热水器">电热水器</a>
+								</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotArticle">
+				<div class="top">热点文章</div>
+				<div class="middle clearfix">
+					<ul>
+								<li class="number1">
+									<span class="icon">&nbsp;</span><a href="/html/201012/cb5b5940de58460dbfae0ca55dea867e.html" title="常见问题">常见问题</a>
+								</li>
+								<li class="number2">
+									<span class="icon">&nbsp;</span><a href="/html/201012/dd520ba46e5847bcb4b35a511bb03256.html" title="网站声明">网站声明</a>
+								</li>
+								<li class="number3">
+									<span class="icon">&nbsp;</span><a href="/html/201012/680c9867e86440598ffceb1fa142d65f.html" title="联系客服">联系客服</a>
+								</li>
+								<li class="number4">
+									<span class="icon">&nbsp;</span><a href="/html/201012/053e1ae1ab1f45c9944a6d910dae4880.html" title="购物流程">购物流程</a>
+								</li>
+								<li class="number5">
+									<span class="icon">&nbsp;</span><a href="/html/201012/4ac4f2b7c99e448889a132b8d97c3981.html" title="会员注册协议">会员注册协议</a>
+								</li>
+								<li class="number6">
+									<span class="icon">&nbsp;</span><a href="/html/201012/b914a5e78e294b6a9bac2fa163ca1a30.html" title="积分说明">积分说明</a>
+								</li>
+								<li class="number7">
+									<span class="icon">&nbsp;</span><a href="/html/201012/8b00e33b03294b848e53dece9be5be57.html" title="关于我们">关于我们</a>
+								</li>
+								<li class="number8">
+									<span class="icon">&nbsp;</span><a href="/html/201012/144374e5f8a3428a81f7074eff44c0a4.html" title="邮局汇款">邮局汇款</a>
+								</li>
+								<li class="number9">
+									<span class="icon">&nbsp;</span><a href="/html/201012/ff87d981682b45138254d0e443bd693d.html" title="订单查询">订单查询</a>
+								</li>
+								<li class="number10">
+									<span class="icon">&nbsp;</span><a href="/html/201012/a6dd9118c5644784bae1e724240b6780.html" title="会员等级">会员等级</a>
+								</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="bodyRight">
+			<div class="bestGoods">
+				<div class="top">
+					<strong>精品推荐</strong>BEST
+				</div>
+				<div class="middle">
+					<ul>
+								<li>
+									<a href="/html/201012/1603a34dd17a4b4ebb1365a0be253b89.html">
+										<img src="/upload/201012/412e1bcda32e4021a62b992ac39e10c2_thumbnail.jpg" alt="康佳（KONKA） LC40GS60DC 40英寸 全高清液晶电视" />
+										<p title="康佳（KONKA） LC40GS60DC 40英寸 全高清液晶电视">康佳（KONKA） LC40...</p>
+										<p class="red">￥3000.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/e59a99e364854330926892907095f30d.html">
+										<img src="/upload/201012/e5782d1b74e64eeb91ca8ac5dd8b081e_thumbnail.jpg" alt="松下（Panasonic）P42U20C 42英寸 全高清等离子电视" />
+										<p title="松下（Panasonic）P42U20C 42英寸 全高清等离子电视">松下（Panasonic）P...</p>
+										<p class="red">￥4499.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/5b1a3a4f15ed4cd79978b31ff1f51ae7.html">
+										<img src="/upload/201012/07431d5b90e94b60a6ea3ba278a00a8a_thumbnail.jpg" alt="创维32L05HR" />
+										<p title="创维32L05HR">创维32L05HR</p>
+										<p class="red">￥2800.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/91d8bb0b9fd946af94f88b0601c71be2.html">
+										<img src="/upload/201012/edec9db853674a29a146349a25dd8bf3_thumbnail.jpg" alt="Sony/索尼 KLV-40BX400" />
+										<p title="Sony/索尼 KLV-40BX400">Sony/索尼 KLV-40BX...</p>
+										<p class="red">￥4490.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/1125b7d0e3f547e09c042bde0224577f.html">
+										<img src="/upload/201012/94bc277bd9524938a1c985b7a7c173d8_thumbnail.jpg" alt="佳能IXUS105" />
+										<p title="佳能IXUS105">佳能IXUS105</p>
+										<p class="red">￥1880.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/538e8cfb26ed4a8b9de1fbfc47adebdd.html">
+										<img src="/upload/201012/bdb84e30c2e945e8a306ac63548f3b03_thumbnail.jpg" alt="卡西欧EX-H5" />
+										<p title="卡西欧EX-H5">卡西欧EX-H5</p>
+										<p class="red">￥980.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/71f8f9ed464340f69b3d9d4b413ab868.html">
+										<img src="/upload/201012/c49fb1a5becc4f3c9aa92b3a979b6644_thumbnail.jpg" alt="爱国者DC-F200" />
+										<p title="爱国者DC-F200">爱国者DC-F200</p>
+										<p class="red">￥980.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/cbb83f3932e24ce494dc9af645296468.html">
+										<img src="/upload/201012/fa3eb156a0824f4b968685eb620500e2_thumbnail.jpg" alt="三星PL150" />
+										<p title="三星PL150">三星PL150</p>
+										<p class="red">￥1180.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/3189f8820ee24b2dae2a30a96ac8820d.html">
+										<img src="/upload/201012/d314bbb490e840b4b0f177a5aade791b_thumbnail.jpg" alt="爱普生（EPSON）LQ-630K 针式打印机" />
+										<p title="爱普生（EPSON）LQ-630K 针式打印机">爱普生（EPSON）LQ-...</p>
+										<p class="red">￥1960.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/559d1a76cb41425f8fe3def7d6cdd80c.html">
+										<img src="/upload/201012/9a244f61961740af96e7f501437a1455_thumbnail.jpg" alt="惠普（HP）LaserJet P1007 黑白激光打印机" />
+										<p title="惠普（HP）LaserJet P1007 黑白激光打印机">惠普（HP）LaserJet...</p>
+										<p class="red">￥2700.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/741464d06ebf4e16ab6acc7db8707bc6.html">
+										<img src="/upload/201012/3ebb3ebfdaf4476f902f2487f0150ef1_thumbnail.jpg" alt="松下（Panasonic） NN-CS597SXPE 热风对流烧烤 微波炉" />
+										<p title="松下（Panasonic） NN-CS597SXPE 热风对流烧烤 微波炉">松下（Panasonic） ...</p>
+										<p class="red">￥4450.00</p>
+									</a>
+								</li>
+								<li>
+									<a href="/html/201012/a619ff9fe9aa4bbc95e032538e2b4a42.html">
+										<img src="/upload/201012/8b93623c2f104ace9d36c7e5aa172744_thumbnail.jpg" alt="三洋（SANYO） EM-K2509EB1 25L 微波炉" />
+										<p title="三洋（SANYO） EM-K2509EB1 25L 微波炉">三洋（SANYO） EM-K...</p>
+										<p class="red">￥508.00</p>
+									</a>
+								</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="blank"></div>
+<div id="friendLink" class="friendLink">
+	<div class="pictureFriendLink">
+		<div class="left prev"></div>
+		<div id="pictureFriendLinkScrollable" class="middle scrollable">
+			<ul class="items">
+						<li>
+							<a href="http://www.icbc.com.cn" target="_blank" title="中国工商银行">
+								<img src="/upload/201012/91b77d22abce4151a981d31c9cb3b53c.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.shopxx.net" target="_blank" title="SHOP++官方网站">
+								<img src="/upload/201012/99c176c9fd06478985e2e983b85e6c78.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" target="_blank" title="手机支付">
+								<img src="/upload/201012/b4b2e547a760476a987db2879ae7a584.gif">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" target="_blank" title="财付通">
+								<img src="/upload/201012/f4225c3ec442450ebc2b9dd7ac6d5353.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" target="_blank" title="支付宝">
+								<img src="/upload/201012/d68c4214f8354fb18cb56f069bc32df4.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" target="_blank" title="快钱">
+								<img src="/upload/201012/423824fbccfb4955868dd4107f02fcbd.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" target="_blank" title="SHOP++官方论坛">
+								<img src="/upload/201012/99c176c9fd06478985e2e983b85e6c78.png">
+							</a>
+						</li>
+						<li>
+							<a href="http://www.boc.cn" target="_blank" title="中国银行">
+								<img src="/upload/201012/9dd9d4a1a4ef425aaf19217dbdc50cd6.gif">
+							</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right next"></div>
+	</div>
+	<div class="textFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+						<li>
+							<a href="http://www.shopxx.net" target="_blank" title="SHOP++官方网站">SHOP++官方网站</a>
+						</li>
+						<li>
+							<a href="http://bbs.shopxx.net" target="_blank" title="SHOP++官方论坛">SHOP++官方论坛</a>
+						</li>
+						<li>
+							<a href="http://www.icbc.com.cn" target="_blank" title="中国工商银行">中国工商银行</a>
+						</li>
+						<li>
+							<a href="http://www.ccb.com" target="_blank" title="中国建设银行">中国建设银行</a>
+						</li>
+						<li>
+							<a href="https://www.alipay.com" target="_blank" title="支付宝">支付宝</a>
+						</li>
+						<li>
+							<a href="https://www.tenpay.com" target="_blank" title="财付通">财付通</a>
+						</li>
+						<li>
+							<a href="https://www.99bill.com" target="_blank" title="快钱">快钱</a>
+						</li>
+						<li>
+							<a href="https://cmpay.10086.cn" target="_blank" title="移动手机支付">移动手机支付</a>
+						</li>
+						<li>
+							<a href="http://www.ec.org.cn" target="_blank" title="中国电子商务协会">中国电子商务协会</a>
+						</li>
+						<li>
+							<a href="http://www.ct10000.com" target="_blank" title="中国电信">中国电信</a>
+						</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+</div>
+	</div>
+	<div class="blank"></div>
+<div class="footer">
+	<div class="bottomNavigation">
+					<dl>
+					<dd>
+						<a href="/shop/article_list/shopping.html">购物流程</a>
+					</dd>
+					<dd>
+						<a href="/html/201012/dd520ba46e5847bcb4b35a511bb03256.html">网站制度</a>
+					</dd>
+					<dd>
+						<a href="/shop/article_list/order.html">订单查询</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shop/article_list/credits.html">积分说明</a>
+					</dd>
+					<dd>
+						<a href="/shop/article_list/agreement.html">注册协议</a>
+					</dd>
+					<dd>
+						<a href="/shop/article_list/memberRank.html">会员等级</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shop/article_list/payment.html">网上支付</a>
+					</dd>
+					<dd>
+						<a href="/shop/article_list/payment.html">邮局汇款</a>
+					</dd>
+					<dd>
+						<a href="/shop/article_list/help.html">退货政策</a>
+					</dd>
+					</dl>
+					<dl>
+					<dd>
+						<a href="/shop/article_list/about.html">关于我们</a>
+					</dd>
+					<dd>
+						<a href="/shop/article_list/help.html">发票制度</a>
+					</dd>
+					<dd>
+						<a href="/html/201012/cb5b5940de58460dbfae0ca55dea867e.html">常见问题</a>
+					</dd>
+					</dl>
+	</div>
+	<div class="footerInfo">
+		<ul>
+			<li><a>关于商城</a>|</li>
+			<li><a>帮助中心</a>|</li>
+			<li><a>网站地图</a>|</li>
+			<li><a>诚聘英才</a>|</li>
+			<li><a>联系我们</a>|</li>
+			<li><a>版权说明</a></li>
+		</ul>
+		<ul>
+			<p>Copyright &copy; 2010 SHOP++. All rights reserved. 长沙鼎诚软件有限公司</p>
+			<p>Powered by <a class="systemName" href="http://www.shopxx.net" target="_blank">SHOP<span>++</span> V2010</a></p>
+		</ul>
+	</div>
+</div>
+	<script type="text/javascript" src="/template/common/js/jquery.js"></script>
+	<script type="text/javascript" src="/template/common/js/jquery.tools.js"></script>
+	<script type="text/javascript" src="/template/common/js/jquery.superfish.js"></script>
+	<script type="text/javascript" src="/template/shop/js/base.js"></script>
+	<script type="text/javascript" src="/template/shop/js/shop.js"></script>
+	<script type="text/javascript">
+		$().ready( function() {
+			
+			if (getCookie("isShowWelcome") == null) {
+				$.dialog({type: "warn", content: '欢迎访问SHOP++ 演示商城<br /><a href="/admin/">点击进入管理后台>></a>', modal: true, autoCloseTime: 5000});
+				setCookie("isShowWelcome", "false")
+			}
+			
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_payment_method" name="com.hnfealean.sport.model.shopping.PaymentMethod">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" not-null="true" length="20" access="field"/>
+    <property name="enable" access="field"/>
+    <property name="description" length="1000" access="field"/>
+    <property name="accessUrl" length="255" access="field"/>
+    <property name="orderNo" access="field"/>
+  </class>
+</hibernate-mapping>

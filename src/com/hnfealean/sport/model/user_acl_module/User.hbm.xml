@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_user" lazy="true" name="com.hnfealean.sport.model.user_acl_module.User">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="username" not-null="true" length="16" access="field"/>
+    <property name="email" length="50" access="field" unique="true"/>
+    <property name="password" not-null="true" length="32" access="field"/>
+    <property name="visible" not-null="true" access="field"/>
+    <property name="createDate" lazy="true" access="field"/>
+    <property name="expireDate" lazy="true" access="field"/>
+    <many-to-one not-null="true" column="contactInfoId" access="field" cascade="all" name="contactInfo" class="com.hnfealean.sport.model.user_acl_module.ContactInfo"/>
+    <set access="field" lazy="true" inverse="true" order-by="id asc" name="orders">
+      <key column="userId"/>
+      <one-to-many class="com.hnfealean.sport.model.shopping.Order"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_alipay_configuration" name="com.hnfealean.sport.model.payment.alipay.AlipayConfiguration">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="paymentType" not-null="true" length="50" access="field"/>
+    <property name="partner" not-null="true" length="16" access="field"/>
+    <property name="partner_description" access="field"/>
+    <property name="key" not-null="true" length="32" access="field" column="secure_key"/>
+    <property name="key_description" access="field"/>
+    <property name="seller_email" not-null="true" length="100" access="field"/>
+    <property name="seller_email_description" access="field"/>
+    <property name="notify_url" not-null="true" access="field"/>
+    <property name="notify_url_description" access="field"/>
+    <property name="return_url" access="field"/>
+    <property name="return_url_description" access="field"/>
+    <property name="show_url" access="field"/>
+    <property name="show_url_description" access="field"/>
+    <property name="mainname" not-null="true" access="field"/>
+    <property name="mainname_description" access="field"/>
+    <property name="input_charset" not-null="true" length="16" access="field"/>
+    <property name="input_charset_description" access="field"/>
+    <property name="sign_type" not-null="true" length="16" access="field"/>
+    <property name="sign_type_description" access="field"/>
+    <property name="transport_description" access="field"/>
+    <property name="alipaysubmit" access="field"/>
+    <property name="alipaysubmit_description" access="field"/>
+  </class>
+</hibernate-mapping>

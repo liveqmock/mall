@@ -1,0 +1,51 @@
+FrontProductManagerImpl
+	添加了SeoUrl的方法
+	
+	displayMainPage:首页相关
+		frontProductManager.searchAllTopCategories()											OK
+		frontProductManager.searchProductsAll(String orderBy,Integer offSet,Integer pageSize)	OK
+	
+	displayCatgory:类别页
+	//	frontProductManager.getCategoryByUrl(String url)										OK	??
+		frontProductManager.searchSameLevelCategories(Integer id)								OK
+		frontProductManager.searchDirectChildCategories(Integer id)								OK
+	//	frontProductManager.searchProductByCategoryIds(
+	//						String ids,String filter,String orderBy,
+	//						Integer offset,Integer pagesize)									OK
+		List	frontProductManager.getPositon(String url)										OK
+		List<Product>	frontProductManager.getProductsByIdString(String ids)					OK
+	
+	getproduct:产品访问
+		frontProductManager.getProductByUrl(String url)											OK
+		frontProductManager.getPositon(String url)												OK
+		frontProductManager.getCategoryByProductId(Integer productId)							OK
+
+ShoppingCartManagerImpl
+		public Product loadProduct(int productId)
+		public ImagesAndStyle loadImagesAndStyle(int imagesAndStyleId)
+		public AttributeOption getAttributeOption(int id)
+		public Size loadSize(int sizeId)		
+		
+		
+添加了缓存的方法有：
+product.CategoryAddedProductListsManagerImpl-searchByCategoryId-Integer-String
+product.CategoryAttributeManagerImpl-getAllCategoryAttributes-Integer
+product.FrontProductManagerImpl-getCategoryByUrl-String
+product.FrontProductManagerImpl-getCatrgoryAttributeOptions-Integer
+product.FrontProductManagerImpl-getPositon-Integer
+product.FrontProductManagerImpl-getProductsByIdString-String
+product.FrontProductManagerImpl-searchAllChildCategoriesId-Integer
+product.FrontProductManagerImpl-searchAllTopCategories
+product.FrontProductManagerImpl-searchDirectChildCategories-Integer
+product.FrontProductManagerImpl-searchProductsAll-String-Integer-Integer
+product.FrontProductManagerImpl-searchSameLevelCategories-Integer
+product.FrontProductManagerImpl-getDetailGroupsByProductId-Integer
+product.FrontProductManagerImpl-getCategoryByProductId-Integer
+product.FrontProductManagerImpl-getImageByProductId-Integer
+product.FrontProductManagerImpl-getImagesAndStylesByProductId-Integer
+product.FrontProductManagerImpl-getProductByUrl-String
+product.FrontProductManagerImpl-getProductById-Integer
+product.FrontProductManagerImpl-getBrandByProductId-Integer
+product.FrontProductManagerImpl-getAttributeOptionsByProductId-Integer
+shopping.ShoppingCartManagerImpl-loadProduct-Integer
+article.FrontArticlemanagerImpl-searchAllCategoryArticle-Integer-Integer

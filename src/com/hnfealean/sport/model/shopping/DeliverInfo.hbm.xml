@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_deliverinfo" name="com.hnfealean.sport.model.shopping.DeliverInfo">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" access="field"/>
+    <property name="street_address" access="field"/>
+    <property name="country" access="field"/>
+    <property name="state" access="field"/>
+    <property name="city" access="field"/>
+    <property name="county" access="field"/>
+    <property name="postCode" not-null="true" access="field"/>
+    <property name="email" access="field"/>
+    <property name="phone" not-null="true" length="20" access="field"/>
+    <property name="mobile" not-null="true" length="11" access="field"/>
+    <property name="gender" length="20" access="field"/>
+  </class>
+</hibernate-mapping>

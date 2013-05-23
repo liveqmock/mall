@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_role" name="com.hnfealean.sport.model.user_acl_module.Role">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="roleName" not-null="true" access="field" unique="true"/>
+  </class>
+</hibernate-mapping>

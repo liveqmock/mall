@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_category" name="com.hnfealean.sport.model.product.Category">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <set access="field" inverse="true" order-by="id asc" name="children">
+      <key column="parentId"/>
+      <one-to-many class="com.hnfealean.sport.model.product.Category"/>
+    </set>
+    <property name="description" length="1000" access="field"/>
+    <property name="imageUrl" length="255" access="field"/>
+    <property name="meta_Description" length="255" access="field"/>
+    <property name="meta_KeyWords" length="255" access="field"/>
+    <property name="name" not-null="true" length="120" access="field" unique="true"/>
+    <many-to-one column="parentId" access="field" name="parent"/>
+    <property name="titleInPage4category" length="120" access="field"/>
+    <property name="visible" access="field"/>
+    <property name="url" length="120" access="field"/>
+    <property name="orderNo" access="field"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_order" name="com.hnfealean.sport.model.shopping.Order">
+    <id access="field" name="orderId">
+      <generator class="uuid"/>
+    </id>
+    <many-to-one not-null="true" column="userId" access="field" name="user" class="com.hnfealean.sport.model.user_acl_module.User"/>
+    <property name="createDate" access="field"/>
+    <property name="orderState" access="field"/>
+    <property name="totalOrderPrice" access="field"/>
+    <property name="deliverFee" access="field"/>
+    <property name="totalPrice" access="field"/>
+    <property name="payAbleFee" access="field"/>
+    <property name="message" access="field"/>
+    <property name="paymentState" access="field"/>
+    <many-to-one column="paymentAndDeliverMethod" access="field" name="paymentAndDeliverMethod" class="com.hnfealean.sport.model.shopping.PaymentAndDeliverMethod"/>
+    <many-to-one not-null="true" column="deliverInfoId" access="field" name="deliverInfo" class="com.hnfealean.sport.model.shopping.DeliverInfo"/>
+    <property name="deliverMethod" length="20" access="field"/>
+    <set access="field" order-by="id asc" name="items">
+      <key column="orderId"/>
+      <one-to-many class="com.hnfealean.sport.model.shopping.OrderItem"/>
+    </set>
+    <property name="administratorName" length="25" access="field"/>
+    <property name="timeLimit" length="254" access="field"/>
+  </class>
+</hibernate-mapping>

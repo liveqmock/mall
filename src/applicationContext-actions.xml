@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+    <bean name="/control/center/adminmenu/manage"
+    	  class="com.hnfealean.sport.web.actions.user.MenuAction"  
+    	  scope="prototype">
+    	<property name="menuManager" ref="menuManager"/>
+    </bean>
+   <bean name="/control/shopping/orderstatus/manage"
+    	  class="com.hnfealean.sport.web.actions.shopping.OrderStatusAction"  
+    	  scope="prototype">
+    	<property name="orderStatusManager" ref="orderStatusManager"/>
+    </bean>
+
+     <bean name="/control/center/paymentmethod/manage"
+    	  class="com.hnfealean.sport.web.actions.shopping.PaymentMethodAction"  
+    	  scope="prototype">
+    	<property name="paymentMethodManager" ref="paymentMethodManager"/>
+    </bean>
+ 
+    <bean name="/control/payment/alipay/manage"
+    	  class="com.hnfealean.sport.web.actions.payment.AlipayConfigAction"  
+    	  scope="prototype">
+    	<property name="alipayManager" ref="alipayManager"/>
+    </bean>
+
+    <bean name="/control/center/delivertype/manage"
+    	  class="com.hnfealean.sport.web.actions.deliver.DeliverTypeAction"  
+    	  scope="prototype">
+    	<property name="deliverTypeManager" ref="deliverTypeManager"/>
+    </bean>
+    <bean name="/pay/alipay"
+    	  class="com.hnfealean.sport.web.actions.payment.AlipayRequestAction"  
+    	  scope="prototype">
+    	<property name="alipayManager" ref="alipayManager"/>
+    	<property name="orderManager" ref="orderManager"/>
+    </bean>
+    <bean name="/pay/alipayreturn"
+    	  class="com.hnfealean.sport.web.actions.payment.AlipayReturnAction"  
+    	  scope="prototype">
+    	<property name="alipayManager" ref="alipayManager"/>
+    	<property name="orderManager" ref="orderManager"/>
+    </bean>
+        <bean name="/pay/alipayresponse"
+    	  class="com.hnfealean.sport.web.actions.payment.AlipayResponseAction"  
+    	  scope="prototype">
+    	<property name="alipayManager" ref="alipayManager"/>
+    	<property name="orderManager" ref="orderManager"/>
+    </bean>
+    
+     <bean name="/pay/yeepay"
+    	  class="com.hnfealean.sport.web.actions.payment.YeepayAction"  
+    	  scope="prototype">
+    	<property name="yeepayManager" ref="yeepayManager"/>
+    	<property name="orderManager" ref="orderManager"/>
+    </bean>
+  <bean name="/control/center/globaldistribution/manage"
+    	  class="com.hnfealean.sport.web.actions.deliver.GlobalDeliverModuleAction"  
+    	  scope="prototype">
+    	<property name="globalDeliverModuleManager" ref="globalDeliverModuleManager"/>
+    	<property name="zoneManager" ref="zoneManager"/>
+    	<property name="countryManager" ref="countryManager"/>
+    	<property name="deliverTypeManager" ref="deliverTypeManager"/>
+    </bean>
+ <bean name="/control/center/distribution/manage" 
+    	  class="com.hnfealean.sport.web.actions.deliver.DeliverModuleAction"  
+    	  scope="prototype">
+    	<property name="deliverModuleManager" ref="deliverModuleManager"/>
+    	<property name="zoneManager" ref="zoneManager"/>
+    	<property name="deliverTypeManager" ref="deliverTypeManager"/>
+    		<property name="productManager" ref="productManager"/>
+    </bean>
+ <bean name="/user/coupon/manage" 
+    	  class="com.hnfealean.sport.web.actions.coupon.FrontCouponAction"  
+    	  scope="prototype">
+    	<property name="frontCouponManager" ref="frontCouponManager"/>
+    </bean>
+ <bean name="/control/center/coupon/manage" 
+    	  class="com.hnfealean.sport.web.actions.coupon.CouponAction"  
+    	  scope="prototype">
+    	<property name="couponManager" ref="couponManager"/>
+    </bean>
+ <bean name="/control/center/images/manage" 
+    	  class="com.hnfealean.sport.web.actions.upload.ImageAction"  
+    	  scope="prototype">
+    
+    </bean>
+ <bean name="/control/center/comment/manage" 
+    	  class="com.hnfealean.sport.web.actions.comment.CommentAction"  
+    	  scope="prototype">
+    	<property name="commentManager" ref="commentManager"/>
+    	
+    </bean>
+  	<bean name="/user/manage" 
+    	  class="com.hnfealean.sport.web.actions.user.UserCenterAction"  
+    	  scope="prototype">
+    	<property name="frontUserManager" ref="frontUserManager"/>
+    	<property name="contactInfomanager" ref="contactInfomanager"/>
+    	<property name="zoneManager" ref="zoneManager"/>
+    	<property name="countryManager" ref="countryManager"/>
+    		<property name="emailManager" ref="emailManager"/>
+    		<property name="paymentMethodManager" ref="paymentMethodManager"/>
+    </bean>
+    
+ 	<bean name="/control/center/email/manage" 
+    	  class="com.hnfealean.sport.web.actions.email.EmailAction"  
+    	  scope="prototype">
+    	<property name="emailManager" ref="emailManager"/>
+    </bean>
+     <bean name="/control/center/emailsender/manage" 
+    	  class="com.hnfealean.sport.web.actions.email.EmailSenderAction"  
+    	  scope="prototype">
+    	<property name="emailManager" ref="emailManager"/>
+    </bean>
+    <bean name="/control/product/categoryattribute/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.CategoryAttributeAction"  
+    	  scope="prototype">
+    	<property name="categoryAttributeManager" ref="categoryAttributeManager"/>
+    	<property name="categoryManager" ref="categoryManager"/>
+    	<property name="productManager" ref="productManager"/>
+    </bean>
+    <bean name="/control/product/attribute/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.ProductAttributeAction"  
+    	  scope="prototype">
+    	<property name="productAttributeManager" ref="productAttributeManager"/>
+    </bean>
+    <bean name="/control/product/category/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.CategoryAction"  
+    	  scope="prototype">
+    	<property name="categoryManager" ref="categoryManager"/>
+    	<property name="myAclManager" ref="myAclManager" />
+    	<property name="categoryAddedProductsListManager" ref="categoryAddedProductsListManager"/>	
+    	<property name="productManager" ref="productManager"/>
+    	<property name="frontProductManager" ref="frontProductManager"/>
+    </bean>
+    <bean name="/control/product/brand/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.BrandAction"  
+    	  scope="prototype">
+    	<property name="brandManager" ref="brandManager"/>
+    </bean>
+    <bean name="/control/uploadfile/manage" 
+    	  class="com.hnfealean.sport.web.actions.upload.UploadFileAction"  
+    	  scope="prototype">
+    	<property name="uploadManager" ref="uploadManager"/>
+    </bean>
+      <bean name="/control/product/easypopulate/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.EasyPopulateAction"  
+    	  scope="prototype">
+    	<property name="productManager" ref="productManager"/>
+    	<property name="categoryManager" ref="categoryManager"/>
+    	<property name="brandManager" ref="brandManager"/>
+    	<property name="productAttributeManager" ref="productAttributeManager"/>
+    </bean>   
+    <bean name="/control/product/product/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.ProductAction"  
+    	  scope="prototype">
+    	<property name="productManager" ref="productManager"/>
+    	<property name="categoryManager" ref="categoryManager"/>
+    	<property name="brandManager" ref="brandManager"/>
+    	<property name="productStyleManager" ref="productStyleManager"/>
+    	<property name="tagManager" ref="tagManager"/>
+    </bean>    
+    <bean name="/control/product/style/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.ProductStyleAction"  
+    	  scope="prototype">
+    	<property name="productManager" ref="productManager"/>
+    	<property name="productStyleManager" ref="productStyleManager"/>
+    </bean> 
+    <bean name="/product/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.FrontProductAction"  
+    	  scope="prototype">
+    	<property name="frontProductManager" ref="frontProductManager"/>
+    	<property name="frontArticleManager" ref="frontArticleManager"/>
+    	<property name="categoryAttributeManager" ref="categoryAttributeManager"/>
+    	<property name="categoryAddedProductsListManager" ref="categoryAddedProductsListManager"/>
+    </bean> 
+     <bean name="/global/checkNameExists" 
+    	  class="com.hnfealean.sport.web.actions.user.CheckUserNameExistsAction"  
+    	  scope="prototype">
+    	<property name="checkUserNameExistsManager" ref="checkUserNameExistsManager"/>
+    </bean>
+     <bean name="/global/checkLogin" 
+    	  class="com.hnfealean.sport.web.actions.user.CheckUserLoginAction"  
+    	  scope="prototype">
+    	<property name="checkUserLoginManager" ref="checkUserLoginManager"/>
+    </bean>    
+     <bean name="/user/userReg" 
+    	  class="com.hnfealean.sport.web.actions.user.UserRegAction"  
+    	  scope="prototype">
+    	<property name="userRegManager" ref="userRegManager"/>
+    	<property name="emailManager" ref="emailManager"/>
+    </bean>    
+     <bean name="/user/userLogin" 
+    	  class="com.hnfealean.sport.web.actions.user.UserLoginAction"  
+    	  scope="prototype">
+    	<property name="userLoginManager" ref="userLoginManager"/>
+    </bean>       
+     <bean name="/control/center/user/manage" 
+    	  class="com.hnfealean.sport.web.actions.user.UserManagerAction"  
+    	  scope="prototype">
+    	<property name="userManager4Admin" ref="userManager4Admin"/>
+    </bean>   
+    
+      <bean name="/control/center/administrator/manage" 
+    	  class="com.hnfealean.sport.web.actions.user.AdministratorAction"  
+    	  scope="prototype">
+    	<property name="administratorManager" ref="administratorManager"/>
+    	<property name="roleManager" ref="roleManager"/>
+    </bean>    
+      <bean name="/control/center/module/manage" 
+    	  class="com.hnfealean.sport.web.actions.user.ModuleAction"  
+    	  scope="prototype">
+    	<property name="moduleManager" ref="moduleManager"/>
+    	<property name="myAclManager" ref="myAclManager"/>
+    </bean>     
+     <bean name="/control/center/manage" 
+    	  class="com.hnfealean.sport.web.actions.shopping.ShoppingCartAction"  
+    	  scope="prototype">
+    	<property name="shoppingCartManager" ref="shoppingCartManager"/>
+    </bean>      
+     <bean name="/user/shoppingcart" 
+    	  class="com.hnfealean.sport.web.actions.shopping.ShoppingCartAction"  
+    	  scope="prototype">
+    	<property name="shoppingCartManager" ref="shoppingCartManager"/>
+    </bean>      
+     <bean name="/customer/deliver" 
+    	  class="com.hnfealean.sport.web.actions.shopping.DeliverAction"  
+    	  scope="prototype">
+    	  <property name="deliverManager" ref="deliverManager"/>
+    	   <property name="zoneManager" ref="zoneManager"/>
+    	    <property name="countryManager" ref="countryManager"/>
+    </bean>   
+    <bean name="/customer/payment-method" 
+    	  class="com.hnfealean.sport.web.actions.shopping.FrontPayAndDeliverAction"  
+    	  scope="prototype">
+    	  <property name="paymentMethodManager" ref="paymentMethodManager"/>
+    	   <property name="deliverTypeManager" ref="deliverTypeManager"/>
+    	   <property name="globalDeliverModuleManager" ref="globalDeliverModuleManager"/>
+    	   <property name="deliverModuleManager" ref="deliverModuleManager"/>
+    </bean>    
+    <bean name="/customer/order-confirm" 
+    	  class="com.hnfealean.sport.web.actions.shopping.OrderConfirmAction"  
+    	  scope="prototype">
+    	   <property name="globalDeliverModuleManager" ref="globalDeliverModuleManager"/>
+    	   <property name="deliverModuleManager" ref="deliverModuleManager"/>
+    </bean>             
+    <bean name="/customer/ordermanage" 
+    	  class="com.hnfealean.sport.web.actions.shopping.FrontOrderAction"  
+    	  scope="prototype">
+    	   <property name="frontOrderManager" ref="frontOrderManager"/>
+    	    <property name="paymentMethodManager" ref="paymentMethodManager"/>
+    </bean>
+     <bean name="/control/shopping/ordermanage" 
+    	  class="com.hnfealean.sport.web.actions.shopping.OrderManageAction"  
+    	  scope="prototype">
+    	   <property name="orderManager" ref="orderManager"/>
+    	   <property name="zoneManager" ref="zoneManager"/>
+    	   <property name="countryManager" ref="countryManager"/>
+    	   <property name="deliverTypeManager" ref="deliverTypeManager"/>
+    	   <property name="paymentMethodManager" ref="paymentMethodManager"/>
+    	    <property name="productManager" ref="productManager"/>
+    	    <property name="orderStatusManager" ref="orderStatusManager"/>
+    </bean>
+     <bean name="/control/center/country/manage" 
+    	  class="com.hnfealean.sport.web.actions.area.CountryAction"  
+    	  scope="prototype">
+    	   <property name="countryManager" ref="countryManager"/>
+    </bean>    
+   <bean name="/control/center/zone/manage" 
+    	  class="com.hnfealean.sport.web.actions.area.ZoneAction"  
+    	  scope="prototype">
+    	   <property name="zoneManager" ref="zoneManager"/>
+    	    <property name="countryManager" ref="countryManager"/>
+    </bean>    
+   <bean name="/control/product/stock/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.StockAction"  
+    	  scope="prototype">
+    	   <property name="stockManager" ref="stockManager"/>
+    </bean>  
+        <bean name="/control/analysis"
+    	  class="com.hnfealean.sport.web.actions.log.LogAnalysAction"  
+    	  scope="prototype">
+    	   <property name="systemLogManager" ref="systemLogManager"/>
+    </bean>      
+    <bean name="/search-products" 
+    	  class="com.hnfealean.sport.web.actions.product.ProductsSearchAction"  
+    	  scope="prototype">
+    	   <property name="productSearchManager" ref="productSearchManager"/>
+    </bean>
+    <bean name="/initSystem" 
+    	  class="com.hnfealean.sport.web.actions.user.InitSystemAction"  
+    	  scope="prototype">
+    	   <property name="initSystemManager" ref="initSystemManager"/>
+    </bean>
+    <bean name="/manage" 
+    	  class="com.hnfealean.sport.web.actions.user.AdministratorLoginAction"  
+    	  scope="prototype">
+    	   <property name="adminLoginManager" ref="adminLoginManager"/>
+    </bean>
+    <bean name="/control/center/role/manage" 
+    	  class="com.hnfealean.sport.web.actions.user.RoleAction"  
+    	  scope="prototype">
+    	   <property name="roleManager" ref="roleManager"/>
+    </bean>
+    <bean name="/control/center/acl/manage" 
+    	  class="com.hnfealean.sport.web.actions.user.ACLAction"  
+    	  scope="prototype">
+    	   <property name="myAclManager" ref="myAclManager"/>
+    	   <property name="moduleManager" ref="moduleManager"/>
+    </bean>
+    <bean name="/control/center/article/manage" 
+    	  class="com.hnfealean.sport.web.actions.article.ArticleAction"  
+    	  scope="prototype">
+    	   <property name="articleManager" ref="articleManager"/>
+    	   <property name="postsManager" ref="postsManager"/>
+    
+    </bean>    
+    <bean name="/control/center/tag/manage" 
+    	  class="com.hnfealean.sport.web.actions.product.TagAction"  
+    	  scope="prototype">
+    	   <property name="tagManager" ref="tagManager"/>
+    </bean>  
+    <bean name="/frontarticle"
+    	  class="com.hnfealean.sport.web.actions.article.FrontArticleAction"  
+    	  scope="prototype">
+    	   <property name="frontArticleManager" ref="frontArticleManager"/>
+    </bean>           
+    <bean name="/comment"
+    	  class="com.hnfealean.sport.web.actions.comment.FrontCommentAction"  
+    	  scope="prototype">
+    	   <property name="commentManager" ref="commentManager"/>
+    	<!--    <property name="commentSearchManager" ref="commentSearchManager"/> -->
+    	   <property name="articleManager" ref="articleManager"/>
+    </bean>    
+     <bean name="/pay/paypal"
+    	  class="com.hnfealean.sport.web.actions.payment.PaypalAction"  
+    	  scope="prototype">
+    	   <property name="paypalManager" ref="paypalManager"/>
+    	   <property name="orderManager" ref="orderManager"/>
+    </bean> 
+      <bean name="/user/deliverfee/manage"
+    	  class="com.hnfealean.sport.web.actions.shopping.DeliverFeeAction"  
+    	  scope="prototype">
+    	   <property name="globalDeliverModuleManager" ref="globalDeliverModuleManager"/>
+    	   <property name="deliverModuleManager" ref="deliverModuleManager"/>
+    </bean>    
+    <bean name="/stat"
+    	  class="com.hnfealean.sport.web.actions.log.SystemLogAction"  
+    	  scope="prototype">
+    	   <property name="systemLogManager" ref="systemLogManager"/>
+    </bean>  
+</beans>

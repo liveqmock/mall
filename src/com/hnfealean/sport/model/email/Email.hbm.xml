@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_email" name="com.hnfealean.sport.model.email.Email">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="address" not-null="true" length="50" access="field"/>
+    <property name="isDefault" access="field"/>
+    <property name="smtpHost" not-null="true" length="50" access="field"/>
+    <property name="smtpPort" not-null="true" length="5" access="field"/>
+    <property name="username" not-null="true" length="50" access="field"/>
+    <property name="password" not-null="true" length="50" access="field"/>
+  </class>
+</hibernate-mapping>

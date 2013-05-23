@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_article" name="com.hnfealean.sport.model.article.Article">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" not-null="true" length="60" access="field"/>
+    <property name="title" length="60" access="field"/>
+    <property name="url" length="60" access="field" unique="true"/>
+    <property name="keywords" length="60" access="field"/>
+    <property name="description" length="120" access="field"/>
+    <many-to-one unique="true" access="field" name="content"/>
+    <many-to-one column="pid" access="field" name="parent"/>
+    <property name="date" access="field"/>
+    <many-to-one lazy="false" access="field" name="type"/>
+    <property name="categoryId" access="field"/>
+    <set access="field" inverse="true" order-by="id asc" name="children">
+      <key column="pid"/>
+      <one-to-many class="com.hnfealean.sport.model.article.Article"/>
+    </set>
+    <property name="templateUrl" access="field"/>
+    <property name="commentPermission" access="field"/>
+  </class>
+</hibernate-mapping>

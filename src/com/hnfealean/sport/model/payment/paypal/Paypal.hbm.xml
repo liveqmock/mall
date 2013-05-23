@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_paypal" name="com.hnfealean.sport.model.payment.paypal.Paypal">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="business" length="128" access="field"/>
+    <property name="receiver_email" length="128" access="field"/>
+    <property name="receiver_id" length="32" access="field"/>
+    <property name="payer_email" length="128" access="field"/>
+    <property name="payer_id" length="32" access="field"/>
+    <property name="payer_status" length="10" access="field"/>
+    <property name="payment_date" length="128" access="field"/>
+    <property name="payment_fee" access="field"/>
+    <property name="payment_gross" access="field"/>
+    <property name="payment_status" length="10" access="field"/>
+    <property name="payment_type" length="40" access="field"/>
+    <property name="mc_gross" access="field"/>
+    <property name="mc_fee" access="field"/>
+    <property name="mc_currency" length="3" access="field"/>
+    <property name="invoice" length="128" access="field"/>
+    <property name="verify_sign" length="128" access="field"/>
+    <property name="notify_version" access="field"/>
+    <property name="txn_type" length="40" access="field"/>
+    <property name="address_name" length="64" access="field"/>
+    <property name="address_street" length="254" access="field"/>
+    <property name="address_city" length="120" access="field"/>
+    <property name="address_state" length="120" access="field"/>
+    <property name="address_zip" length="10" access="field"/>
+    <property name="address_country" length="64" access="field"/>
+    <property name="address_status" length="11" access="field"/>
+    <property name="shipping" access="field"/>
+    <property name="transaction_subject" length="120" access="field"/>
+    <property name="residence_country" length="40" access="field"/>
+    <many-to-one column="orderId" access="field" name="order" class="com.hnfealean.sport.model.shopping.Order"/>
+    <property name="pending_reason" length="120" access="field"/>
+  </class>
+</hibernate-mapping>

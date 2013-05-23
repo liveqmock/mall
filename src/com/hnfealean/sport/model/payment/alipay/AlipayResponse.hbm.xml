@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_alipay_response" name="com.hnfealean.sport.model.payment.alipay.AlipayResponse">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="trade_no" access="field"/>
+    <property name="out_trade_no" access="field"/>
+    <property name="price" access="field"/>
+    <property name="subject" access="field"/>
+    <property name="body" access="field"/>
+    <property name="buyer_email" access="field"/>
+    <property name="receive_name" access="field"/>
+    <property name="receive_address" access="field"/>
+    <property name="receive_zip" access="field"/>
+    <property name="receive_phone" access="field"/>
+    <property name="receive_mobile" access="field"/>
+    <property name="trade_status" access="field"/>
+    <property name="notify_id" access="field"/>
+    <property name="sign" access="field"/>
+  </class>
+</hibernate-mapping>

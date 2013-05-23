@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Angel In The Box</TITLE>
+<!--#include virtual="location_check.html"-->
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="AngelInTheBox" name="GENERATOR">
+<meta name="keywords" content="WholeSale Nfl Jerseys|MLB|NBA|Cheap Jerseys">
+<meta name="description" content="We sell cheap Jerseys of Football|Basketball|NFL|NHL|MLB|NBA|Hockey Jersey,so many cheap jerseys here">
+<META content="NFL Jerseys" name="http://www.angelinthebox.com">
+<META content="NHL Jerseys" name="http://www.angelinthebox.com">
+<META name="Cheap NBA Jerseys" content="http://www.angelinthebox.com">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/global/header01.css" rel="stylesheet" type="text/css">
+<LINK href="css/index.css" type="text/css" rel="stylesheet">
+<LINK href="css/product/catalog.css" type="text/css" rel="stylesheet">
+</HEAD>
+<body>
+<div id="AngelInTheBoxBody">
+<div id="Header">
+<!--#include virtual="header.html" -->
+</div>
+<div id="MainContent">
+<div id="LeftMain">
+<!--#include virtual="left.html" -->
+</div>
+<div id="CenterMain">
+<!--#include virtual="center.html" -->
+</div>
+<div id="RightMain">
+<!--#include virtual="right.html" -->
+</div>
+</div>
+<div id="Footer">
+<!--#include virtual="footer.html" -->
+</div>
+</div>
+<!--#config errmsg="Error!"-->
+显示当前日期：<!--#echo var="DATE_LOCAL"-->
+<br/>
+显示当前文档名称：<!--#echo var="document_name"-->
+<br/>
+显示当前文档虚拟路径：<!--#echo var="document_uri"-->
+<br/>
+显示文档最后更新时间：<!--#echo var="LAST_MODIFIED"-->
+<br/>
+显示服务器设定时区的日期何时间：<!--#config timefmt="%A,the %d of %B,in the year %Y"--><!--#echo var="date_local"-->
+<br/>
+显示服务器主机名，DNS别名或IP地址：<!--#echo var="server_name"-->
+<br/>
+显示服务器的响应端口：<!--#echo var="server_port"-->
+<br/>
+显示服务器软件名称和版本：<!--#echo var="server_software"-->
+<br/>
+显示客户端文档请求方法：<!--#echo var="request_method"-->
+<br/>
+显示客户端主机名称,DNS别名或IP地址：<!--#echo var="remote_host"-->
+</body>
+</html>
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_menugroup" name="com.hnfealean.sport.model.user_acl_module.MenuGroup">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" access="field"/>
+    <property name="orderNo" access="field"/>
+    <set access="field" lazy="true" inverse="true" cascade="delete" order-by="id asc" name="menuItems">
+      <key column="menugroupid"/>
+      <one-to-many class="com.hnfealean.sport.model.user_acl_module.MenuItem"/>
+    </set>
+    <many-to-one access="field" name="admin" class="com.hnfealean.sport.model.user_acl_module.Administrator"/>
+  </class>
+</hibernate-mapping>

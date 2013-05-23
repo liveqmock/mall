@@ -1,0 +1,72 @@
+#AngelInTheBoxBody,#Header,#MainContent,#LeftMain,#CenterMain,#RightMain,#Footer{
+float:left
+}
+#AngelInTheBoxBody{
+background:transparent url() repeat-x scroll 0 0;
+font-family:arial,helvetica,sans-serif;
+font-size:12px;
+line-height:17px;
+margin:auto;
+width:980px;
+}
+#Header{
+width:969px;
+height:200px;
+background:url(../images/bg/bg_header.png) repeat scroll 0 0;
+}
+#MainContent{
+width:980px;
+}
+#LeftMain{
+width:200px;
+}
+#CenterMain{
+width:580px;
+}
+#RightMain{
+width:200px;
+}
+.clearBoth{
+clear:both;
+}
+.detail{
+	height:320px;
+	width:200px;
+}
+.floor{
+/*border:1px dotted #CCCCCC;*/
+padding:10px;
+margin-bottom:10px
+}
+.quote{
+
+padding:3px;background:#EEEEDF
+}
+.fqcon{
+padding:3px;background:#F9F9F9
+}
+.un{color:#7b0000}
+.fq{padding:3px 3px 3px 35px;background:#F9F9F9 url(/images/icon_quote_s.gif) no-repeat scroll 2px 0;border:1px solid #D1D5DB;
+}
+#comments{
+font-size:14px;line-height:25px
+}
+.ip{color:#8D8D8D}
+.user{
+color:#0B3B8C
+}
+.date{color:#8D8D8D;float:right}
+.clearboth{clear:both}
+.bar{
+border-bottom:1px dashed #C2C3BA;overflow:hidden
+}
+.quotespan{float:right;line-height:22px;
+margin-left:0;
+margin-right:0;
+padding-left:15px;
+padding-right:10px;}
+.support{float:right;line-height:22px;
+margin-left:0;
+margin-right:0;
+padding-left:15px;
+padding-right:10px;}

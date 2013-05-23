@@ -1,0 +1,18 @@
+<div class="product-images">
+<div class="main-image">
+
+<img class="productImage" id="main"/>	
+
+</div>
+
+<div class="min-images highslide-gallery">
+#foreach($image in ${images})
+<!--500_500/ 50_50/-->
+<a name='toLarge' title="${product.name}--${image.name}" class="highslide productImage" onclick="return hs.expand(this)" href='${image.imageUrl}'>
+<img name="min-image" onmouseover="javascript:changeUrl(this)" src="${image.imageUrl}" class="productImage"/></a>
+		<div class="highslide-heading">${product.name}--${image.name}</div>
+							
+		<input type="hidden" name="imagesAndStyleId" value="${image.id}">  
+		
+#end
+</div>

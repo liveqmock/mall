@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<bean id="commentSearchManager"
+		class="com.hnfealean.sport.managers.impl.search.CommentSearchImpl">
+		<property name="compass" ref="compass" />
+	</bean>
+	 
+	<bean id="productSearchManager"
+		class="com.hnfealean.sport.managers.impl.product.ProductSearchManagerImpl">
+		<property name="compass" ref="compass" />
+	</bean>
+
+	<bean id="compass" class="org.compass.spring.LocalCompassBean">
+		<property name="mappingScan" value="com.hnfealean.sport.model" />
+		<!-- anontaition式设置 	-->
+		<property name="classMappings">
+			<list>
+			
+				<value>com.hnfealean.sport.model.product.Product</value>
+				<value>com.hnfealean.sport.model.product.Category</value>
+				<value>com.hnfealean.sport.model.product.ImagesAndStyle</value>
+				<!-- 2011.6.16
+				 -->
+				<!--
+					<value>com.hnfealean.sport.model.product.Size</value>
+					<value>com.hnfealean.sport.model.product.Brand</value>
+				
+				<value>com.hnfealean.sport.model.article.Article</value>
+				<value>com.hnfealean.sport.model.comment.Comment</value>-->
+			</list>
+		</property>
+		<property name="compassConfiguration" ref="annotationConfiguration" />
+		<property name="connection">
+			<value>/WEB-INF/siteindex</value>
+		</property>
+		<property name="compassSettings">
+			<props>
+				<!--
+					<prop key="compass.engine.connection"> file://c:/siteindex</prop>
+				-->
+
+				<prop key="compass.transaction.factory">org.compass.spring.transaction.SpringSyncTransactionFactory</prop>
+				<prop key="compass.engine.analyzer.MMAnalyzer.CustomAnalyzer">net.paoding.analysis.analyzer.PaodingAnalyzer</prop>
+				<prop key="compass.engine.highlighter.default.formatter.simple.pre"><![CDATA[<b>]]></prop>
+				<prop key="compass.engine.highlighter.default.formatter.simple.post"><![CDATA[</b>]]></prop>
+			</props>
+		</property>
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+	<!--
+		<bean id="hibernateGpsDevice" name="hibernateGpsDevice"
+		class="org.compass.gps.device.hibernate.HibernateGpsDevice"> <property
+		name="name"> <value>hibernateDevice</value> </property> <property
+		name="sessionFactory" ref="sessionFactory" /> <property
+		name="mirrorDataChanges"> <value>true</value> </property> </bean>
+	-->
+	<!-- 同步更新索引 -->
+	<bean id="compassGps" class="org.compass.gps.impl.SingleCompassGps"
+		init-method="start" destroy-method="stop">
+		<property name="compass" ref="compass" />
+		<property name="gpsDevices">
+			<list>
+				<bean
+					class="org.compass.spring.device.SpringSyncTransactionGpsDeviceWrapper">
+					<property name="gpsDevice">
+						<bean
+							class="org.compass.spring.device.hibernate.dep.SpringHibernate3GpsDevice">
+							<property name="name" value="hibernateDevice" />
+							<property name="sessionFactory" ref="sessionFactory" />
+							<!-- <property name="injectEntityLifeCycleListener" value="true"/>-->
+							<!-- <property name="transactionManager" ref="transactionManager" /> -->
+						</bean>
+					</property>
+				</bean>
+			</list>
+		</property>
+
+
+	</bean>
+
+	<!--下面一段是web容器启动后自动重建索引-->
+	<!-- 
+		<bean id="compassIndexBuilder"
+		class="com.hnfealean.sport.managers.impl.product.CompassIndexBuilder"
+		lazy-init="false"> 
+		<property name="compassGps" ref="compassGps" />
+		<property name="buildIndex" value="true" /> 
+		<property name="lazyTime" value="10" /> 
+		</bean>
+	  -->
+	<bean id="compassTemplate" class="org.compass.core.CompassTemplate">
+		<property name="compass" ref="compass" />
+	</bean>
+
+</beans>

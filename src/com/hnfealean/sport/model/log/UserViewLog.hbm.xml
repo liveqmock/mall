@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_user_view_log" name="com.hnfealean.sport.model.log.UserViewLog">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="ip" length="30" access="field"/>
+    <property name="zone" length="40" access="field"/>
+    <property name="inTime" access="field"/>
+    <property name="inUrl" length="255" access="field"/>
+    <property name="referer" length="255" access="field"/>
+    <property name="userId" access="field"/>
+    <property name="userEmail" length="50" access="field"/>
+  </class>
+</hibernate-mapping>

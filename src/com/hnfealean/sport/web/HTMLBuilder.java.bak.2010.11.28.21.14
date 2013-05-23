@@ -1,0 +1,194 @@
+package com.hnfealean.sport.web;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
+import org.apache.velocity.exception.MethodInvocationException;
+import org.apache.velocity.exception.ParseErrorException;
+import org.apache.velocity.exception.ResourceNotFoundException;
+
+import com.hnfealean.sport.model.article.Article;
+import com.hnfealean.sport.model.product.AttributeOption;
+import com.hnfealean.sport.model.product.Category;
+import com.hnfealean.sport.model.product.Product;
+
+public  class HTMLBuilder {
+	/*	private static final String PRODUCT="product";
+	private static final String  PRODUCT_IMAGE="product_image";
+	private static final String  PRODUCT_ATTRIBUTES="product_attributes";
+	private static final String  PRODUCT_BREADCRUMB="product_breadcrumb";*/	
+	public static String  PRODUCT="product";
+	public static String  PRODUCT_IMAGE="product_image";
+	public static String  PRODUCT_ATTRIBUTES="product_attributes";
+	public static String  PRODUCT_BREADCRUMB="product_breadcrumb";
+
+	
+	public static void createProductMain(Product product,File saveDir){
+		//产品信息主体部分
+		if(!saveDir.exists()) saveDir.mkdirs();
+		VelocityContext context = new VelocityContext();
+		context.put("product", product);
+		try {
+			Template template = Velocity.getTemplate("product/product.vm");
+			FileOutputStream outStream = new FileOutputStream(new File(saveDir, product.getShtml_File_Name()+".shtml"));
+			OutputStreamWriter writer =  new OutputStreamWriter(outStream,"UTF-8");
+			BufferedWriter sw = new BufferedWriter(writer);
+			template.merge(context, sw);
+			sw.flush();
+			sw.close();
+			outStream.close();
+		} catch (Exception e) {
+			throw new SystemException("生成产品主体静态文件失败!");
+			//e.printStackTrace();
+		}	
+		
+	}
+	public static void createProductBreadCrumbs(List position,File saveDir,int id){
+		if(!saveDir.exists()) saveDir.mkdirs();
+		VelocityContext context = new VelocityContext();
+		//产品信息的面包屑导航部分
+		context.put("position", position);
+		try {
+			Template template = Velocity.getTemplate("product/product_breadcrumbs.vm");
+			FileOutputStream outStream =  new FileOutputStream(new File(saveDir, id+".html"));
+			OutputStreamWriter writer =  new OutputStreamWriter(outStream,"UTF-8");
+			BufferedWriter sw = new BufferedWriter(writer);
+			template.merge(context, sw);
+			sw.flush();
+			sw.close();
+			outStream.close();		
+		}catch (Exception e) {
+			throw new SystemException("生成产品面包屑导航静态文件失败!");
+			//e.printStackTrace();
+		}	
+	}
+	public static void createProductImages(Set set,File saveDir,int id){
+		if(!saveDir.exists()) saveDir.mkdirs();
+		VelocityContext context = new VelocityContext();
+		//产品信息的图片部分
+		
+		try {
+			//产品信息的图片部分
+			context.put("images", set);
+			Template template = Velocity.getTemplate("product/product_images.vm");
+			FileOutputStream	outStream = new FileOutputStream(new File(saveDir, id+".html"));
+			OutputStreamWriter	writer =  new OutputStreamWriter(outStream,"UTF-8");
+			BufferedWriter	sw = new BufferedWriter(writer);
+			template.merge(context, sw);
+			sw.flush();
+			sw.close();
+			outStream.close();
+		}catch (Exception e) {
+			throw new SystemException("生成产品面包屑导航静态文件失败!");
+			//e.printStackTrace();
+		}		
+	}
+	public static void createProductAttributes(Set set,File saveDir,int id){
+		if(!saveDir.exists()) saveDir.mkdirs();
+		VelocityContext context = new VelocityContext();
+	
+		try {
+		//产品信息的属性部分
+			context.put("options", set);
+		Template template = Velocity.getTemplate("product/product_attributes.vm");
+		FileOutputStream outStream = new FileOutputStream(new File(saveDir, id+".html"));
+		OutputStreamWriter writer =  new OutputStreamWriter(outStream,"UTF-8");
+		BufferedWriter	sw = new BufferedWriter(writer);
+		template.merge(context, sw);
+		sw.flush();
+		sw.close();
+		outStream.close();
+		}catch (Exception e) {
+			throw new SystemException("生成产品属性静态文件失败!");
+		}
+	}
+	public static void buildHtml(Object obj, File saveDir,List position,String whatToCreate){
+		whatToCreate=whatToCreate.toLowerCase();
+
+		try {
+				VelocityContext context = new VelocityContext();
+				if(whatToCreate.equals(PRODUCT)){
+					Product product = (Product) obj;
+				createProductMain(product,saveDir);
+				createProductBreadCrumbs(position,new File(saveDir+"/breadcrumbs"),product.getId());
+				createProductImages(product.getImagesAndStyles(),new File(saveDir+"images"),product.getId());
+				Set options = product.getOptions();
+				if(product.getOptions()==null||product.getOptions().isEmpty()||product.getOptions().size()==0){
+				
+			}else{
+			Iterator it = product.getOptions().iterator();
+			while(it.hasNext()){
+				AttributeOption option = (AttributeOption) it.next();
+			//	System.out.println(option.getValue());
+			}
+			}
+				System.out.println(options.size());
+				createProductAttributes(options,new File(saveDir+"/attributes"),product.getId());
+				}else if(whatToCreate.equals("News")){
+				Article article = (Article) obj;
+				context.put("news", article);
+				context.put("position", position);
+				Template template = Velocity.getTemplate("article/newscontent.vm");
+				FileOutputStream outStream = new FileOutputStream(new File(saveDir, article.getUrl()+".html"));
+				OutputStreamWriter writer =  new OutputStreamWriter(outStream,"UTF-8");
+				BufferedWriter sw = new BufferedWriter(writer);
+				template.merge(context, sw);
+				sw.flush();
+				sw.close();
+				outStream.close();
+			}else if(whatToCreate.equals("Blog")){
+				Article article = (Article) obj;
+				context.put("news", article);
+				context.put("position", position);
+				Template template = Velocity.getTemplate("article/blogcontent.vm");
+				FileOutputStream outStream = new FileOutputStream(new File(saveDir, article.getTitle()+".html"));
+				OutputStreamWriter writer =  new OutputStreamWriter(outStream,"UTF-8");
+				BufferedWriter sw = new BufferedWriter(writer);
+				template.merge(context, sw);
+				sw.flush();
+				sw.close();
+				outStream.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		/*			if(whatToCreate.equals(PRODUCT)){
+		Product product =(Product) obj;
+		context.put("product", product);
+		
+	//	context.put("position", position);
+	//	System.out.println(product.getCategory().getTitleInPage4category());
+//		product.getOptions();
+//		if(product.getOptions()==null||product.getOptions().isEmpty()||product.getOptions().size()==0){
+//			
+//		}else{
+//		Iterator it = product.getOptions().iterator();
+//		while(it.hasNext()){
+//			AttributeOption option = (AttributeOption) it.next();
+//		//	System.out.println(option.getValue());
+//		}
+//		}
+		//产品信息主体部分
+		Template template = Velocity.getTemplate("product/product.vm");
+		FileOutputStream outStream = new FileOutputStream(new File(saveDir, product.getShtml_File_Name()+".shtml"));
+		OutputStreamWriter writer =  new OutputStreamWriter(outStream,"UTF-8");
+		BufferedWriter sw = new BufferedWriter(writer);
+		template.merge(context, sw);
+		sw.flush();
+		sw.close();
+		outStream.close();*/
+	}
+
+}

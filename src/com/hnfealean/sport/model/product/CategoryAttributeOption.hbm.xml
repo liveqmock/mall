@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_cattributeoption" name="com.hnfealean.sport.model.product.CategoryAttributeOption">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="value" length="30" access="field"/>
+    <many-to-one column="attributeId" access="field" name="attribute" class="com.hnfealean.sport.model.product.CategoryAttribute"/>
+  </class>
+</hibernate-mapping>

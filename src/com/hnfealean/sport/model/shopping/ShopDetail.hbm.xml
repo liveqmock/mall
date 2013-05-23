@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_shopdetail" name="com.hnfealean.sport.model.shopping.ShopDetail">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <many-to-one column="userId" access="field" name="userId"/>
+    <many-to-one access="field" name="productId"/>
+    <property name="shopTime" access="field"/>
+    <many-to-one access="field" name="contactInfoId"/>
+    <property name="acceptPrice" access="field"/>
+    <property name="discount" access="field"/>
+  </class>
+</hibernate-mapping>

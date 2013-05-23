@@ -1,0 +1,9 @@
+ <div id="position">您现在的位置:<a name="linkHome" href="">Angel In The Box</a>&nbsp;>>
+ 
+ #foreach($category in ${position})
+#set($location="<a title='${category.name}' class='position' href='${category.url}${constantString.CATEGORYURLSUFFIX}'>&nbsp;${category.name}</a>&nbsp;>>")
+#end
+
+ ${location}&nbsp;<a href="product/${product.shtml_File_Name}.shtml" title="${product.name}">${product.name}</a>
+</div>
+ 

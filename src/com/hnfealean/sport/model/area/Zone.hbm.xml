@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_zone" name="com.hnfealean.sport.model.area.Zone">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <many-to-one column="country" access="field" name="country"/>
+    <property name="code" length="3" access="field"/>
+    <property name="name" length="30" access="field"/>
+    <many-to-one column="parentId" access="field" name="parent"/>
+    <set access="field" lazy="true" inverse="true" order-by="id asc" name="children">
+      <key column="parentId"/>
+      <one-to-many class="com.hnfealean.sport.model.area.Zone"/>
+    </set>
+  </class>
+</hibernate-mapping>

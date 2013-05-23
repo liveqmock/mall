@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:oscache="http://www.springmodules.org/schema/oscache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springmodules.org/schema/oscache http://www.springmodules.org/schema/cache/springmodules-oscache.xsd">
+	
+
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="${dataSource}" destroy-method="close">
+		<property name="driverClassName" value="${driverClassName}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<!-- 连接池启动时的初始值 -->
+		<property name="initialSize" value="${initialSize}" />
+		<!-- 连接池的最大值 -->
+		<property name="maxActive" value="${maxActive}" />
+		<!-- 最大空闲值，当经过一个高峰时间后，连接池 可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止-->
+		<property name="maxIdle" value="${maxIdle}" />
+		<!-- 最小空闲值。当空闲的连接数少于阈值时，连接池就会预申请一些连接，以免洪峰来临时来不及申请 -->
+		<property name="minIdle" value="${minIdle}" />
+	</bean>
+	<!-- 配置reloadProcessor,其中定义了权限管理,不能对此bean注入业务类，此类的运行在注入之前 -->
+	<bean name="reloadProcessor" class="com.hnfealean.sport.managers.global.ReloadProcessor"
+		scope="prototype">
+	</bean>
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource">
+		</property>
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 配置事务特性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="dis*" propagation="REQUIRED" />
+			<tx:method name="en*" propagation="REQUIRED" />
+			<!-- <tx:method name="productManager" propagation="REQUIRED"/>-->
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 配置那些类的方法进行事务管理 -->
+	<aop:config>
+		<aop:pointcut id="allManager"
+			expression="execution (* com.hnfealean.sport.managers.*.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allManager" />
+		<!--
+			<aop:pointcut id="allManagerMethod" expression="execution (*
+			com.hnfealean.sport.managers.*.*(..))"/> <aop:pointcut
+			id="allManager" expression="execution (*
+			com.hnfealean.sport.managers.product.*.*(..))"/> <aop:pointcut
+			id="Manager" expression="execution (*
+			com.hnfealean.sport.managers.upload.*.*(..))"/> <aop:pointcut
+			id="aclManager" expression="execution (*
+			com.hnfealean.sport.managers.user_acl_module.*.*(..))"/>
+			<aop:pointcut id="shoppingManager" expression="execution (*
+			com.hnfealean.sport.managers.shopping.*.*(..))"/> <aop:pointcut
+			id="implManager" expression="execution (*
+			com.hnfealean.sport.managers.impl.*.*(..))"/> <aop:advisor
+			advice-ref="txAdvice" pointcut-ref="allManagerMethod"/> <aop:advisor
+			advice-ref="txAdvice" pointcut-ref="Manager"/> <aop:advisor
+			advice-ref="txAdvice" pointcut-ref="aclManager"/> <aop:advisor
+			advice-ref="txAdvice" pointcut-ref="shoppingManager"/> <aop:advisor
+			advice-ref="productAdvice" pointcut-ref="implManager"/> <aop:advisor
+			advice-ref="productAdvice" pointcut-ref="allManager"/> <aop:advisor
+			advice-ref="txAdvice" pointcut-ref="aclManager"/>
+		-->
+	</aop:config>
+</beans>

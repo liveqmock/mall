@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_distributiontemplate" name="com.hnfealean.sport.model.deliver.DistributionTemplate">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <set access="field" lazy="false" cascade="save-update" order-by="id asc" name="delievrModules">
+      <key column="distributionId"/>
+      <one-to-many class="com.hnfealean.sport.model.deliver.DeliverModule"/>
+    </set>
+    <property name="name" not-null="true" length="30" access="field"/>
+    <property name="description" length="255" access="field"/>
+    <set access="field" lazy="false" order-by="id asc" name="products">
+      <key column="distributionId"/>
+      <one-to-many class="com.hnfealean.sport.model.product.Product"/>
+    </set>
+  </class>
+</hibernate-mapping>

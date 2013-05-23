@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_globaldistributiontemplate" name="com.hnfealean.sport.model.deliver.GlobalDistributionTemplate">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" length="255" access="field"/>
+    <property name="ignoreProductDeliverFee" access="field"/>
+    <property name="permanent" access="field"/>
+    <set access="field" lazy="false" cascade="save-update" order-by="id asc" name="modules">
+      <key column="globalDistributionId"/>
+      <one-to-many class="com.hnfealean.sport.model.deliver.GlobalDeliverModule"/>
+    </set>
+    <property name="enable" access="field"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_product" name="com.hnfealean.sport.model.product.Product">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="additionInfo" length="30" access="field"/>
+    <property name="basePrice" not-null="true" access="field"/>
+    <many-to-one column="brandId" access="field" name="brand" class="com.hnfealean.sport.model.product.Brand"/>
+    <many-to-one not-null="true" column="categoryId" access="field" name="category" class="com.hnfealean.sport.model.product.Category"/>
+    <property name="clickCount" not-null="true" access="field"/>
+    <property name="code" length="30" access="field" unique="true"/>
+    <property name="commend" not-null="true" access="field"/>
+    <property name="createDate" access="field"/>
+    <property name="detail" not-null="true" length="500" access="field"/>
+    <property name="expireDate" access="field"/>
+    <set access="field" order-by="id asc" name="imagesAndStyles">
+      <key column="productId"/>
+      <one-to-many class="com.hnfealean.sport.model.product.ImagesAndStyle"/>
+    </set>
+    <set access="field" order-by="id asc" name="manufacturers">
+      <key column="productId"/>
+      <one-to-many class="com.hnfealean.sport.model.product.Manufacturer"/>
+    </set>
+    <property name="marketPrice" not-null="true" access="field"/>
+    <property name="meta_Description" length="1000" access="field"/>
+    <property name="meta_KeyWords" length="255" access="field"/>
+    <property name="model" length="20" access="field"/>
+    <property name="name" not-null="true" length="120" access="field"/>
+    <property name="quantity" access="field"/>
+    <property name="sellCount" not-null="true" access="field"/>
+    <property name="sellPrice" not-null="true" access="field"/>
+    <property name="sex" length="10" access="field"/>
+    <property name="shtml_File_Name" length="120" access="field"/>
+    <set access="field" order-by="id asc" name="sizes">
+      <key column="productId"/>
+      <one-to-many class="com.hnfealean.sport.model.product.Size"/>
+    </set>
+    <property name="filter" length="255" access="field"/>
+    <set access="field" inverse="false" order-by="id asc" name="options">
+      <key column="productId"/>
+      <one-to-many class="com.hnfealean.sport.model.product.AttributeOption"/>
+    </set>
+    <set access="field" order-by="id asc" name="groups">
+      <key column="productId"/>
+      <one-to-many class="com.hnfealean.sport.model.product.ProductDetailGroup"/>
+    </set>
+    <many-to-one column="distributionId" access="field" name="distributionTemplate"/>
+    <property name="titleInPage" length="255" access="field"/>
+    <property name="visible" not-null="true" access="field"/>
+    <property name="weight" access="field"/>
+  </class>
+</hibernate-mapping>

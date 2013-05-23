@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<!-- <aop:config> <aop:aspect id="security" ref="securityHandler"> <aop:pointcut 
+		id="allAddMethod" expression="execution(* com.hnfealean.sport.web.actions.product.BrandAction.addInput(..))"/> 
+		<aop:before method="checkSecurity" pointcut-ref="allAddMethod" /> </aop:aspect> 
+		</aop:config> -->
+	<!-- <bean id="reloadProcessor" class="com.hnfealean.sport.managers.global.ReloadProcessor"> 
+		<property name="myAclManager" ref="myAclManager" /> </bean> -->
+	<aop:aspectj-autoproxy />
+	<bean id="systemLogManager"
+		class="com.hnfealean.sport.managers.impl.log.SystemLogManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="myInterceptor" class="com.hnfealean.sport.managers.global.MyInterceptor">
+		<property name="systemLogManager" ref="systemLogManager"></property>
+	</bean>
+	<bean id="menuManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.MenuManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="orderStatusManager"
+		class="com.hnfealean.sport.managers.impl.shopping.OrderStatusManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="alipayManager"
+		class="com.hnfealean.sport.managers.impl.payment.AlipayManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="yeepayManager"
+		class="com.hnfealean.sport.managers.impl.payment.YeepayManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deliverTypeManager"
+		class="com.hnfealean.sport.managers.impl.deliver.DeliverTypeManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="globalDeliverModuleManager"
+		class="com.hnfealean.sport.managers.impl.deliver.GlobalDeliverModuleManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deliverModuleManager"
+		class="com.hnfealean.sport.managers.impl.deliver.DeliverModuleManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="frontCouponManager"
+		class="com.hnfealean.sport.managers.impl.coupon.FrontCouponManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="couponManager"
+		class="com.hnfealean.sport.managers.impl.coupon.CouponManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="contactInfomanager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.ContactInfoManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="frontUserManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.FrontUserManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="emailManager"
+		class="com.hnfealean.sport.managers.impl.email.EmailManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="paypalManager"
+		class="com.hnfealean.sport.managers.impl.payment.PaypalManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="commentManager"
+		class="com.hnfealean.sport.managers.impl.comment.CommentManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="categoryAttributeManager"
+		class="com.hnfealean.sport.managers.impl.product.CategoryAttributeManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="productAttributeManager"
+		class="com.hnfealean.sport.managers.impl.product.ProductAttributeManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="countryManager"
+		class="com.hnfealean.sport.managers.impl.area.CountryManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="zoneManager" class="com.hnfealean.sport.managers.impl.area.ZoneManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.RoleManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- <bean id="myAclManager" class="com.hnfealean.sport.managers.impl.user_acl_module.ACLManagerImpl"> 
+		<property name="sessionFactory" ref="sessionFactory" /> </bean> -->
+	<bean id="categoryManager"
+		class="com.hnfealean.sport.managers.impl.product.CategoryManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="brandManager"
+		class="com.hnfealean.sport.managers.impl.product.BrandManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="tagManager"
+		class="com.hnfealean.sport.managers.impl.product.TagManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="uploadManager"
+		class="com.hnfealean.sport.managers.impl.upload.UploadManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="productManager"
+		class="com.hnfealean.sport.managers.impl.product.ProductManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="stockManager"
+		class="com.hnfealean.sport.managers.impl.product.StockManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="productStyleManager"
+		class="com.hnfealean.sport.managers.impl.product.ProductStyleManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="frontProductManager"
+		class="com.hnfealean.sport.managers.impl.product.FrontProductManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="checkUserNameExistsManager"
+		class="com.hnfealean.sport.managers.impl.global.CheckUserNameExistsImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="checkUserLoginManager"
+		class="com.hnfealean.sport.managers.impl.global.CheckUserLoginImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userRegManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.UserRegManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userLoginManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.UserLoginManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userManager4Admin"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.UserManager4AdminImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="shoppingCartManager"
+		class="com.hnfealean.sport.managers.impl.shopping.ShoppingCartManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deliverManager"
+		class="com.hnfealean.sport.managers.impl.shopping.DeliverManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="paymentMethodManager"
+		class="com.hnfealean.sport.managers.impl.shopping.PaymentMethodManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="frontOrderManager"
+		class="com.hnfealean.sport.managers.impl.shopping.FrontOrderManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="orderManager"
+		class="com.hnfealean.sport.managers.impl.shopping.OrderManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="initSystemManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.AdministratorInitManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="adminLoginManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.AdminLoginManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="administratorManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.AdministratorManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="moduleManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.ModuleManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="articleManager"
+		class="com.hnfealean.sport.managers.impl.article.ArticleManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="frontArticleManager"
+		class="com.hnfealean.sport.managers.impl.article.FrontArticlemanagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="postsManager"
+		class="com.hnfealean.sport.managers.impl.article.PostsManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="categoryAddedProductsListManager"
+		class="com.hnfealean.sport.managers.impl.product.CategoryAddedProductListsManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+
+	<bean id="annotationConfiguration"
+		class="org.compass.annotations.config.CompassAnnotationsConfiguration"></bean>
+
+
+	<bean id="myAclManager"
+		class="com.hnfealean.sport.managers.impl.user_acl_module.ACLManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 配置JCaptcha验证码功能 -->
+	<!-- <bean id="captchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService"> -->
+	<!-- <property name="captchaEngine"> -->
+	<!-- <bean class="com.hnfealean.sport.managers.global.JCaptchaEngine" /> -->
+	<!-- </property> -->
+	<!-- 验证码过期时间 -->
+	<!-- <property name="minGuarantedStorageDelayInSeconds" value="600" /> -->
+	<!-- </bean> -->
+</beans>

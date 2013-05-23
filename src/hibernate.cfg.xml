@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="com/hnfealean/sport/model/area/Country.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/area/Zone.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/article/Article.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/article/ArticleType.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/comment/Comment.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/comment/CommentContent.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/coupon/Coupon.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/coupon/CouponUsedRecord.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/deliver/DeliverModule.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/deliver/DeliverType.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/deliver/DistributionTemplate.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/deliver/GlobalDeliverModule.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/deliver/GlobalDistributionTemplate.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/email/Email.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/keyword/Keyword.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/log/AdministratorViewLog.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/log/UserViewLog.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/payment/alipay/AlipayConfiguration.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/payment/alipay/AlipayRequest.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/payment/alipay/AlipayResponse.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/payment/paypal/Paypal.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/payment/yeepay/YeepayRequest.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/payment/yeepay/YeepayResponse.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/post/Posts.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/AttributeOption.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/Brand.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/Category.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/CategoryAddedProductsListModule.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/CategoryAttribute.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/CategoryAttributeOption.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/ImagesAndStyle.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/Manufacturer.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/Product.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/ProductAttribute.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/ProductDetailAttribute.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/ProductDetailGroup.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/ProductDetailOption.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/Size.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/product/Tag.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/search/Search.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/search/SearchOutput.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/DeliverInfo.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/Order.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/OrderItem.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/OrderItemAttribute.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/OrderStatus.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/PaymentAndDeliverMethod.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/PaymentMethod.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/ShopDetail.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/shopping/ShoppingCartItem.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/upload/UploadFile.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/ACL.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/Administrator.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/AdministratorRoles.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/ContactInfo.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/Favorite.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/FavoriteItem.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/MenuGroup.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/MenuItem.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/Module.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/ModuleFunction.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/Purse.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/PurseRecord.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/Role.hbm.xml"/>
+    <mapping resource="com/hnfealean/sport/model/user_acl_module/User.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

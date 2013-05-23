@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_module" name="com.hnfealean.sport.model.user_acl_module.Module">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name" not-null="true" access="field" unique="true"/>
+    <property name="sn" access="field"/>
+    <property name="url" access="field"/>
+    <property name="orderNo" access="field"/>
+    <many-to-one column="parentId" access="field" name="parent"/>
+    <set access="field" lazy="false" inverse="true" cascade="delete" order-by="id asc" name="children">
+      <key column="parentId"/>
+      <one-to-many class="com.hnfealean.sport.model.user_acl_module.Module"/>
+    </set>
+    <set access="field" lazy="false" inverse="true" cascade="delete-orphan" order-by="id asc" name="functions">
+      <key column="module"/>
+      <one-to-many class="com.hnfealean.sport.model.user_acl_module.ModuleFunction"/>
+    </set>
+  </class>
+</hibernate-mapping>

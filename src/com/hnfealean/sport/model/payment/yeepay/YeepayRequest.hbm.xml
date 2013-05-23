@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_yeepay_request" name="com.hnfealean.sport.model.payment.yeepay.YeepayRequest">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="p0_Cmd" access="field"/>
+    <property name="p1_MerId" access="field"/>
+    <property name="p2_Order" access="field"/>
+    <property name="p3_Amt" access="field"/>
+    <property name="p4_Cur" access="field"/>
+    <property name="p5_Pid" access="field"/>
+    <property name="p6_Pcat" access="field"/>
+    <property name="p7_Pdesc" access="field"/>
+    <property name="p8_Url" access="field"/>
+    <property name="p9_SAF" access="field"/>
+    <property name="pa_MP" access="field"/>
+    <property name="pd_FrpId" access="field"/>
+    <property name="pr_NeedResponse" access="field"/>
+    <property name="keyValue" access="field"/>
+    <property name="md5hmac" access="field"/>
+    <property name="date" access="field"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_search" name="com.hnfealean.sport.model.search.Search">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property name="input" length="30" access="field"/>
+    <property name="meta_description" length="500" access="field"/>
+    <property name="meta_keywords" length="200" access="field"/>
+    <property name="title" not-null="false" length="100" access="field"/>
+    <property name="url" length="100" access="field"/>
+    <many-to-one access="field" name="searchoutput"/>
+    <property name="indexPermission" access="field"/>
+  </class>
+</hibernate-mapping>
